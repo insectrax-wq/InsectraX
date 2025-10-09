@@ -170,9 +170,9 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
             font-weight: 700;
-            background: linear-gradient(45deg, #ffffff, #ff6b6b);
+            background: linear-gradient(45deg, #ffffff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -670,6 +670,8 @@
         <div class="hero-image"></div>
         <div class="container">
             <div class="hero-content">
+                <br>
+                <br>
                 <h1 class="hero-title">Conoce al Team InsectraX</h1>
                 <p class="hero-subtitle">Un equipo de jovenes innovadores de Penjamo, Guanajuato, comprometidos con revolucionar la agricultura mediante tecnologia de vanguardia.</p>
                 <a href="#equipo" class="hero-button">Conocer al Equipo</a>
@@ -706,43 +708,38 @@
                 <p>Los mentes detras de InsectraX</p>
             </div>
             <div class="team-grid">
-                <!-- AQUI PONER NOMBRE 1 -->
                 <div class="team-card">
                     <div class="team-avatar">??</div>
-                    <h3>NOMBRE 1</h3>
-                    <div class="role">ROL 1</div>
+                    <h3>Angel Jesus Escamilla Rodriguez</h3>
+                    <div class="role">Lider</div>
                     <p>Descripcion del integrante 1 y sus responsabilidades en el proyecto.</p>
                 </div>
 
-                <!-- AQUI PONER NOMBRE 2 -->
                 <div class="team-card">
                     <div class="team-avatar">??</div>
-                    <h3>Emmanuel Salvador Herrera Cano</h3>
-                    <div class="role">ROL 2</div>
+                    <h3>Erandi Uriel Quiroz Pichardo</h3>
+                    <div class="role">Sub Lider</div>
                     <p>Descripcion del integrante 2 y sus responsabilidades en el proyecto.</p>
                 </div>
 
-                <!-- AQUI PONER NOMBRE 3 -->
                 <div class="team-card">
                     <div class="team-avatar">??</div>
-                    <h3>NOMBRE 3</h3>
-                    <div class="role">ROL 3</div>
+                    <h3>Emmanuel Salvador Herrera Cano</h3>
+                    <div class="role">Inspector</div>
                     <p>Descripcion del integrante 3 y sus responsabilidades en el proyecto.</p>
                 </div>
 
-                <!-- AQUI PONER NOMBRE 4 -->
                 <div class="team-card">
                     <div class="team-avatar">??</div>
-                    <h3>NOMBRE 4</h3>
-                    <div class="role">ROL 4</div>
+                    <h3>Bryan Josue Hernandez Salazar</h3>
+                    <div class="role">Diseñador</div>
                     <p>Descripcion del integrante 4 y sus responsabilidades en el proyecto.</p>
                 </div>
 
-                <!-- AQUI PONER NOMBRE 5 -->
                 <div class="team-card">
                     <div class="team-avatar">??</div>
-                    <h3>NOMBRE 5</h3>
-                    <div class="role">ROL 5</div>
+                    <h3>Miguel Angel Contreras Rios</h3>
+                    <div class="role">Diseñador</div>
                     <p>Descripcion del integrante 5 y sus responsabilidades en el proyecto.</p>
                 </div>
             </div>
@@ -864,97 +861,7 @@
         </div>
     </footer>
 
-    <script>
-        // Animacion de elementos al hacer scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            // Elementos del menu movil
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('navMenu');
-            const menuOverlay = document.getElementById('menuOverlay');
-
-            // Funcion para toggle del menu
-            function toggleMenu() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            }
-
-            // Event listeners para el menu
-            hamburger.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
-
-            // Cerrar menu al hacer clic en un enlace
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Animacion inicial del hero
-            setTimeout(function () {
-                document.querySelector('.hero-content').classList.add('visible');
-            }, 300);
-
-            // Header scroll effect
-            window.addEventListener('scroll', function () {
-                const header = document.getElementById('main-header');
-                if (window.scrollY > 100) {
-                    header.classList.add('header-scrolled');
-                } else {
-                    header.classList.remove('header-scrolled');
-                }
-            });
-
-            // Observador para animar elementos al hacer scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            // Observar elementos con animacion
-            document.querySelectorAll('.team-card, .value-card').forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'all 0.5s ease';
-                observer.observe(element);
-            });
-
-            // Smooth scroll para enlaces internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Cerrar menu con la tecla ESC
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-    </script>
+    <script src="js/nosotros.js"></script>
 </body>
 
 </html>
