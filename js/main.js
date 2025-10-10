@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 
-    // Inicializar opacidad de cards
+    // Inicializar opacidad de las cards
     document.querySelectorAll('.feature-card, .tech-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Cerrar menú con la tecla ESC
+    // Pa cerrar menu con Esc
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             toggleMenu();
