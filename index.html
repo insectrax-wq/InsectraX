@@ -12,95 +12,6 @@
     <link rel="icon" href="img/logos/InsectraX.png" type="image/png">
     <title>InsectraX - Tecnología Agrícola para Guanajuato</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Estilos adicionales manteniendo tu diseño */
-        .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .cta-button {
-            background: #27ae60;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .hero-button.primary {
-            background: #e74c3c;
-        }
-
-        .hero-button.secondary {
-            background: transparent;
-            border: 2px solid white;
-        }
-
-        .data-source {
-            font-size: 0.75rem;
-            color: #888;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .newsletter-form button {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .author-role {
-            font-size: 0.85rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -637,6 +548,17 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        (function () {
+            var script = document.createElement('script');
+            script.dataset.bot = "68e9ce94ba0e3e818618c369";
+            script.dataset.zindex = "99999";
+            script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+            script.async = true;
+            script.defer = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        })()
+    </script>
 </body>
 
 </html>
