@@ -7,6 +7,328 @@
     <link rel="icon" href="img/logos/InsectraX.png" type="image/png">
     <title>Nosotros - Team InsectraX</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Estilos adicionales para mejoras */
+        .timeline-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ff0000;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-date {
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .process-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .process-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+        }
+
+        .process-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .process-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .process-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .process-item:hover .process-overlay {
+            transform: translateY(0);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #ff0000;
+            transform: translateY(-3px);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        /* Secciones del index */
+        .features-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff0000;
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            height: 80px;
+            width: 80px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .technology-details {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0000;
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            height: 80px;
+            width: 80px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .tech-features {
+            list-style: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .tech-features li {
+            padding: 8px 0;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .tech-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .gallery-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+
+            .timeline-content::before {
+                left: -50px !important;
+                right: auto !important;
+            }
+
+            .features-grid,
+            .tech-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,10 +346,12 @@
                 </div>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="index.html#caracteristicas">Características</a></li>
-                    <li><a href="index.html#tecnologia">Tecnología</a></li>
-                    <li><a href="index.html#galeria">Galería</a></li>
-                    <li><a href="nosotros.html" class="active">Sobre Nosotros</a></li>
+                    <li><a href="#caracteristicas">Características</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#timeline">Nuestra Travesía</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#valores">Valores</a></li>
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
@@ -72,10 +396,201 @@
                     </p>
                     <p>Nuestra misión es clara: desarrollar tecnología accesible que proteja la salud de los
                         agricultores, incremente la productividad y promueva una agricultura más sostenible.</p>
+
+                    <!-- Estadísticas rápidas -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: #ff0000; font-weight: bold;">6</div>
+                            <div style="color: #b0b0b0;">Integrantes</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: #ff0000; font-weight: bold;">1+</div>
+                            <div style="color: #b0b0b0;">Mes de desarrollo</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="img/nosotros/team.jpg" alt="Team InsectraX trabajando"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a1a1a); min-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="caracteristicas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Características Principales</h2>
+                <p>Tecnología avanzada diseñada para el agricultor moderno</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Energía Solar</h3>
+                    <p>Sistema de carga sostenible con paneles solares integrados para operación continua y ecológica
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Protección Total</h3>
+                    <p>Sistema completamente cerrado que elimina el contacto directo con productos químicos peligrosos
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Precisión Inteligente</h3>
+                    <p>Aplicación exacta de insumos según las necesidades específicas de cada zona del cultivo</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚜</div>
+                    <h3>Movilidad Superior</h3>
+                    <p>Diseño con orugas que permite desplazamiento eficiente en cualquier tipo de terreno agrícola</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Monitoreo en Tiempo Real</h3>
+                    <p>Sensores avanzados que proporcionan datos precisos para la toma de decisiones informadas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h3>Optimización de Recursos</h3>
+                    <p>Reducción del 40% en el uso de agua y productos químicos mediante aplicación inteligente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Details Section -->
+    <section class="technology-details" id="tecnologia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tecnología Avanzada</h2>
+                <p>Sistemas innovadores que hacen de InsectraX la solución más completa</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Algoritmos de machine learning que optimizan la aplicación de insumos según las condiciones
+                        específicas de cada cultivo.</p>
+                    <ul class="tech-features">
+                        <li>Reconocimiento de plagas y enfermedades</li>
+                        <li>Análisis predictivo de rendimiento</li>
+                        <li>Optimización automática de rutas</li>
+                        <li>Aprendizaje continuo del terreno</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">📡</div>
+                    <h3>Sensores Multiespectrales</h3>
+                    <p>Tecnología de detección avanzada que analiza el estado de salud de las plantas en tiempo real.
+                    </p>
+                    <ul class="tech-features">
+                        <li>Análisis NDVI (Índice de Vegetación)</li>
+                        <li>Detección de estrés hídrico</li>
+                        <li>Monitoreo de clorofila</li>
+                        <li>Mapas de productividad</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <h3>Conectividad 5G/IoT</h3>
+                    <p>Sistema de comunicación en tiempo real que permite el control remoto y la actualización
+                        constante.</p>
+                    <ul class="tech-features">
+                        <li>Transmisión de datos en tiempo real</li>
+                        <li>Control remoto desde cualquier dispositivo</li>
+                        <li>Actualizaciones Over-the-Air (OTA)</li>
+                        <li>Integración con plataformas agrícolas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galería InsectraX</h2>
+                <p>Descubre nuestro robot en acción</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/galeria/robot1.png" alt="InsectraX en campo abierto" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>InsectraX en operación</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/galeria/robot2.png" alt="Sistema de aplicación" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Sistema de aplicación preciso</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/galeria/robot3.png" alt="Panel solar" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Energía solar integrada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline del Proyecto -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Travesía</h2>
+                <p>El camino de desarrollo de InsectraX</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Septiembre 2025 - Semana 1</div>
+                        <h3>Conceptualización</h3>
+                        <p>Investigación de problemáticas agrícolas en Guanajuato y desarrollo de la idea inicial del
+                            robot autónomo. Análisis de necesidades del sector agrícola local.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Septiembre 2025 - Semana 2</div>
+                        <h3>Definición de Roles</h3>
+                        <p>Asignación de responsabilidades y estructuración del equipo de trabajo. Establecimiento
+                            de roles específicos para cada integrante del proyecto.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Septiembre 2025 - Semana 3</div>
+                        <h3>Análisis de Problemática</h3>
+                        <p>Investigación profunda de los desafíos agrícolas en Guanajuato. Identificación de
+                            necesidades específicas y validación de la problemática con agricultores locales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Septiembre 2025 - Semana 4</div>
+                        <h3>Diseño y Planificación</h3>
+                        <p>Desarrollo del diseño conceptual del robot y planificación detallada del sistema.
+                            Definición de arquitectura técnica y especificaciones funcionales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Octubre 2025 - Semana 5</div>
+                        <h3>Creación de Página Web</h3>
+                        <p>Desarrollo y lanzamiento del sitio web oficial de InsectraX. Implementación de diseño
+                            responsive y contenido informativo sobre el proyecto.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,34 +611,49 @@
                     <h3>Ángel Jesús Escamilla Rodríguez</h3>
                     <div class="role">Líder</div>
                     <p>Encargado de la dirección general del proyecto y del desarrollo técnico. Ángel destaca por su
-                        creatividad, liderazgo y habilidades en programación, diseño web y automatización. Su enfoque
-                        combina innovación y funcionalidad, impulsando al equipo hacia soluciones prácticas y efectivas.
-                    </p>
+                        creatividad, liderazgo y habilidades en programación, diseño web y automatización.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Programación</span>
+                        <span class="skill-tag">Liderazgo</span>
+                        <span class="skill-tag">Automatización</span>
+                    </div>
                 </div>
-
 
                 <div class="team-card">
                     <div class="team-avatar">
-                        
+                        <div
+                            style="width: 100%; height: 100%; background: linear-gradient(45deg, #ff0000, #ff6b6b); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            EQ
+                        </div>
                     </div>
                     <h3>Erandi Uriel Quiroz Pichardo</h3>
                     <div class="role">Sublíder</div>
                     <p>Apoya en la coordinación del equipo y en la toma de decisiones clave del proyecto. Erandi se
-                        caracteriza por su compromiso, organización y capacidad para resolver problemas de forma
-                        eficiente. Su labor es fundamental para mantener la estructura y el buen desarrollo de las
-                        tareas del grupo.</p>
+                        caracteriza por su compromiso, organización y capacidad para resolver problemas.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Coordinación</span>
+                        <span class="skill-tag">Organización</span>
+                        <span class="skill-tag">Resolución</span>
+                    </div>
                 </div>
 
-
                 <div class="team-card">
-                    <div class="team-avatar">🎓</div>
+                    <div class="team-avatar">
+                        <div
+                            style="width: 100%; height: 100%; background: linear-gradient(45deg, #27ae60, #2ecc71); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            JM
+                        </div>
+                    </div>
                     <h3>José de Jesús Mendoza Osorio</h3>
                     <div class="role">Tutor</div>
                     <p>Guía y orienta al equipo durante el desarrollo del proyecto, brindando apoyo técnico y académico.
-                        El profesor José de Jesús aporta su experiencia, conocimiento y liderazgo para asegurar que cada
-                        integrante cumpla sus objetivos y el proyecto mantenga una alta calidad.</p>
+                        Aporta experiencia, conocimiento y liderazgo para asegurar calidad.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Mentoría</span>
+                        <span class="skill-tag">Experiencia</span>
+                        <span class="skill-tag">Calidad</span>
+                    </div>
                 </div>
-
 
                 <div class="team-card">
                     <div class="team-avatar">
@@ -132,35 +662,49 @@
                     <h3>Emmanuel Salvador Herrera Cano</h3>
                     <div class="role">Inspector</div>
                     <p>Responsable de supervisar el cumplimiento de los objetivos y la calidad de cada fase del
-                        proyecto. Emmanuel destaca por su atención al detalle, compromiso y capacidad para detectar
-                        áreas de mejora, asegurando que el trabajo final cumpla con los estándares establecidos.</p>
+                        proyecto. Destaca por su atención al detalle y compromiso.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Calidad</span>
+                        <span class="skill-tag">Supervisión</span>
+                        <span class="skill-tag">Detalle</span>
+                    </div>
                 </div>
 
-
                 <div class="team-card">
-                    <div class="team-avatar">🎨</div>
+                    <div class="team-avatar">
+                        <img src="img/Integrantes/diseñador1.jpg" alt="Bryan Josué Hernández Salazar">
+                    </div>
                     <h3>Bryan Josué Hernández Salazar</h3>
                     <div class="role">Diseñador</div>
-                    <p>Encargado del diseño visual y la presentación gráfica del proyecto. Bryan aporta creatividad,
-                        estilo y un enfoque estético que da identidad al equipo. Su trabajo garantiza que cada parte del
-                        proyecto sea atractiva, coherente y visualmente impactante.</p>
+                    <p>Encargado del diseño visual y la presentación gráfica del proyecto. Aporta creatividad,
+                        estilo y un enfoque estético que da identidad al equipo.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Diseño</span>
+                        <span class="skill-tag">Creatividad</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
                 </div>
 
-
                 <div class="team-card">
-                    <div class="team-avatar">💡</div>
+                    <div class="team-avatar">
+                        <img src="img/Integrantes/diseñador2.jpg" alt="Miguel Ángel Contreras Ríos">
+                    </div>
                     <h3>Miguel Ángel Contreras Ríos</h3>
                     <div class="role">Diseñador</div>
-                    <p>Participa en la creación de elementos visuales y en la mejora estética del proyecto. Miguel
-                        aporta ideas originales, equilibrio visual y creatividad, contribuyendo a que el diseño final
-                        sea atractivo, funcional y representativo de la identidad del equipo.</p>
+                    <p>Participa en la creación de elementos visuales y en la mejora estética del proyecto. Aporta ideas
+                        originales, equilibrio visual y creatividad.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Diseño</span>
+                        <span class="skill-tag">Creatividad</span>
+                        <span class="skill-tag">Visual</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Values Section -->
-    <section class="values-section">
+    <section class="values-section" id="valores">
         <div class="container">
             <div class="section-header">
                 <h2>Nuestros Valores</h2>
@@ -193,68 +737,6 @@
         </div>
     </section>
 
-    <!-- Philosophy Section -->
-    <section class="philosophy-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Filosofía Institucional UPPE</h2>
-                <p>Los principios que guían nuestra formación</p>
-            </div>
-            <div class="philosophy-content">
-                <div class="philosophy-text">
-                    <h3>Nuestra Identidad Universitaria</h3>
-                    <p>La Universidad Politécnica de Pénjamo se fundamenta en una filosofía que integra la excelencia
-                        académica con el compromiso social, formando profesionales capaces de transformar su entorno.
-                    </p>
-                    <p><strong>Misión:</strong> Formar profesionales competitivos, creativos y con sentido humano,
-                        capaces de generar y aplicar conocimientos científicos y tecnológicos que contribuyan al
-                        desarrollo sustentable de la región y del país.</p>
-                    <p><strong>Visión:</strong> Ser una institución de educación superior reconocida por su calidad
-                        académica, su vinculación con los sectores productivos y su contribución al desarrollo
-                        sostenible de la sociedad.</p>
-                    <p><strong>Valores:</strong> Honestidad, responsabilidad, respeto, compromiso social, trabajo en
-                        equipo y mejora continua son los pilares que sustentan nuestra acción educativa.</p>
-                </div>
-                <div class="philosophy-image">
-                    <img src="img/logos/LogoUppBlanco.png" alt="Logo UPPE" class="uppe-logo">
-                    <img src="img/edificios/mapa.png" alt="Campus UPPE"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a1a1a); min-height: 300px;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- UPPE Section -->
-    <section class="uppe-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nuestra Casa de Estudios</h2>
-                <p>Formación de calidad en Pénjamo</p>
-            </div>
-            <div class="uppe-content">
-                <div class="uppe-image">
-                    <img src="img/edificios/2-HU_Foto-1_01.png" alt="Universidad Politécnica de Pénjamo"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a1a1a); min-height: 300px;">
-                </div>
-                <div class="uppe-info">
-                    <h3>Universidad Politécnica de Pénjamo</h3>
-                    <p>La UPPE ha sido fundamental en nuestro desarrollo como profesionales y emprendedores. Su enfoque
-                        en la educación práctica y la innovación nos ha permitido transformar ideas en soluciones
-                        reales.</p>
-                    <p>Gracias al apoyo de nuestros mentores y las instalaciones de la universidad, hemos podido
-                        prototipar, probar y perfeccionar InsectraX hasta convertirlo en una solución viable para el
-                        campo.</p>
-                    <p>Estamos orgullosos de representar a nuestra alma máter y demostrar que desde Pénjamo se puede
-                        generar tecnología de clase mundial.</p>
-                    <div style="margin-top: 30px; text-align: center;">
-                        <a href="https://www.uppenjamo.edu.mx/" target="_blank" class="hero-button"
-                            style="display: inline-block;">Visitar Sitio UPPE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer id="contacto">
         <div class="container">
@@ -265,15 +747,21 @@
                         agricultura con tecnología mexicana.</p>
                     <br>
                     <p style="color: #ff0000; font-weight: bold;">"Innovación que nace del campo para el campo"</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">👥</a>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#caracteristicas">Características</a></li>
-                        <li><a href="index.html#tecnologia">Tecnología</a></li>
-                        <li><a href="index.html#galeria">Galería</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#tecnologia">Tecnología</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#timeline">Nuestra Travesía</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
