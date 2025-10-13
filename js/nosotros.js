@@ -109,3 +109,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, 2000); // 2 segundos como respaldo
 });
+
+// JavaScript corregido
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    // Aplicar el nuevo tema
+    document.documentElement.setAttribute('data-theme', newTheme);
+
+    // Guardar la preferencia en localStorage
+    localStorage.setItem('theme', newTheme);
+
+    // Actualizar el estado del checkbox (INVERTIDO - modo oscuro es el predeterminado)
+    const themeSwitch = document.querySelector('.theme-switch__checkbox');
+    if (themeSwitch) {
+        themeSwitch.checked = newTheme === 'light';
+    }
+}
+
+// Inicializar el tema al cargar la página
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // Modo oscuro por defecto
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Configurar el estado del checkbox (INVERTIDO)
+    const themeSwitch = document.querySelector('.theme-switch__checkbox');
+    if (themeSwitch) {
+        themeSwitch.checked = savedTheme === 'light';
+        themeSwitch.addEventListener('change', toggleTheme);
+    }
+}
+
+// Ejecutar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializeTheme);
