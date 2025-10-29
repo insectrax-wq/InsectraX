@@ -2,6 +2,16 @@
 <html lang="es">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TK5CN5LC');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -11,10 +21,51 @@
     <meta name="author" content="InsectraX">
     <link rel="icon" href="img/logos/InsectraX.png" type="image/png">
     <title>InsectraX - Tecnología Agrícola para Guanajuato</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="theme-color" content="#e53e3e">
+    <meta property="og:title" content="InsectraX - Robot Agrícola Autónomo">
+    <meta property="og:description"
+        content="Tecnología que reduce el uso de químicos y mejora la productividad agrícola en Guanajuato">
+    <meta property="og:image" content="img/logos/InsectraX.png">
+    <meta property="og:url" content="https://insectrax.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="InsectraX - Tecnología Agrícola">
+    <meta name="twitter:description" content="Revolucionamos la agricultura con robots autónomos">
+    <meta name="twitter:image" content="img/logos/InsectraX.png">
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "InsectraX",
+      "url": "https://insectrax.com",
+      "logo": "https://insectrax.com/img/logos/InsectraX.png",
+      "description": "Tecnología agrícola innovadora para Guanajuato",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Guanajuato",
+        "addressCountry": "MX"
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Preload crítico -->
+    <link rel="preload" href="img/fondos/campo.jpg" as="image">
+    <link rel="preload" href="img/logos/InsectraX.png" as="image">
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TK5CN5LC" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <header id="main-header" role="banner">
@@ -30,6 +81,8 @@
                         <li role="none"><a href="#problematica" role="menuitem">Problemática</a></li>
                         <li role="none"><a href="#caracteristicas" role="menuitem">Características</a></li>
                         <li role="none"><a href="#tecnologia" role="menuitem">Tecnología</a></li>
+                        <li role="none"><a href="#calculadora" role="menuitem">Calculadora</a></li>
+                        <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
                         <li role="none"><a href="#galeria" role="menuitem">Galería</a></li>
                         <li role="none"><a href="#testimonios" role="menuitem">Opiniones</a></li>
                         <li role="none"><a href="#fuentes" role="menuitem">Fuentes</a></li>
@@ -46,451 +99,651 @@
         </div>
     </header>
 
-    <section class="hero" id="inicio">
-        <div class="hero-image"></div>
-        <div class="container">
-            <div class="hero-content">
-                <br>
-                <h1 class="hero-title">InsectraX: Tecnología que Protege al Campo Guanajuatense</h1>
-                <p class="hero-subtitle">Revolucionamos la agricultura con un robot autónomo que reduce la exposición a
-                    químicos, mejora la productividad y cuida la salud de los agricultores.</p>
-
-                <div class="hero-buttons">
-                    <a href="#tecnologia" class="hero-button secondary">Ver Tecnología</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Realidad Agrícola en Guanajuato -->
-    <section class="features-section" id="problematica">
-        <div class="container">
-            <div class="section-header">
-                <h2>La Realidad Agrícola en Guanajuato</h2>
-                <p>Datos que inspiran nuestra solución</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Producción Agrícola</h3>
-                    <p><strong>4.2 millones</strong> de toneladas de productos agrícolas anuales</p>
-                    <div class="data-source">Fuente: SIAP 2023 - Atlas Agroalimentario</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚜</div>
-                    <h3>Superficie Agrícola</h3>
-                    <p><strong>722,000 hectáreas</strong> dedicadas a la agricultura en el estado</p>
-                    <div class="data-source">Fuente: INEGI - Censo Agrícola 2022</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚠️</div>
-                    <h3>Problema de Plagas</h3>
-                    <p><strong>35% de pérdidas</strong> en cultivos por plagas no controladas eficientemente</p>
-                    <div class="data-source">Fuente: SADER - Reporte Fitosanitario 2023</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>Uso de Agua</h3>
-                    <p><strong>85% del agua</strong> disponible se destina al sector agrícola en Guanajuato</p>
-                    <div class="data-source">Fuente: CONAGUA - Estadísticas Hídricas 2024</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🌾</div>
-                    <h3>Agricultores en Riesgo</h3>
-                    <p><strong>150,000 productores</strong> expuestos regularmente a agroquímicos peligrosos</p>
-                    <div class="data-source">Fuente: OMS - Reporte Salud Agrícola 2023</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Pérdidas Económicas</h3>
-                    <p><strong>$2,800 MDP anuales</strong> por ineficiencias en aplicación de insumos</p>
-                    <div class="data-source">Fuente: FIRA - Análisis Económico Agrícola 2023</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section" id="caracteristicas">
-        <div class="container">
-            <div class="section-header">
-                <h2>Características Principales</h2>
-                <p>Tecnología avanzada diseñada para el agricultor moderno</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">☀️</div>
-                    <h3>Energía Solar</h3>
-                    <p>Sistema de carga sostenible con paneles solares integrados para operación continua y ecológica
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Protección Total</h3>
-                    <p>Sistema completamente cerrado que elimina el contacto directo con productos químicos peligrosos
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Precisión Inteligente</h3>
-                    <p>Aplicación exacta de insumos según las necesidades específicas de cada zona del cultivo</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚜</div>
-                    <h3>Movilidad Superior</h3>
-                    <p>Diseño con orugas que permite desplazamiento eficiente en cualquier tipo de terreno agrícola</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Monitoreo en Tiempo Real</h3>
-                    <p>Sensores avanzados que proporcionan datos precisos para la toma de decisiones informadas</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>Optimización de Recursos</h3>
-                    <p>Reducción del 40% en el uso de agua y productos químicos mediante aplicación inteligente</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beneficios Cuantificables -->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Resultados Esperados</h2>
-                <p>Impacto medible en la agricultura de Guanajuato</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📉</div>
-                    <h3>40% Reducción</h3>
-                    <p>En el uso de químicos mediante aplicación inteligente y precisa</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>35% Aumento</h3>
-                    <p>En productividad gracias al monitoreo continuo y aplicación optimizada</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>60% Menos Riesgo</h3>
-                    <p>De exposición a químicos para agricultores y trabajadores</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>50% Menos Agua</h3>
-                    <p>En el uso de recursos hídricos mediante aplicación dirigida</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Details Section -->
-    <section class="technology-details" id="tecnologia">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tecnología Avanzada</h2>
-                <p>Sistemas innovadores que hacen de InsectraX la solución más completa</p>
-            </div>
-
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">🤖</div>
-                    <h3>Inteligencia Artificial</h3>
-                    <p>Algoritmos de machine learning que optimizan la aplicación de insumos según las condiciones
-                        específicas de cada cultivo.</p>
-                    <ul class="tech-features">
-                        <li>Reconocimiento de plagas y enfermedades</li>
-                        <li>Análisis predictivo de rendimiento</li>
-                        <li>Optimización automática de rutas</li>
-                        <li>Aprendizaje continuo del terreno</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">📡</div>
-                    <h3>Sensores Multiespectrales</h3>
-                    <p>Tecnología de detección avanzada que analiza el estado de salud de las plantas en tiempo real.
-                    </p>
-                    <ul class="tech-features">
-                        <li>Análisis NDVI (Índice de Vegetación)</li>
-                        <li>Detección de estrés hídrico</li>
-                        <li>Monitoreo de clorofila</li>
-                        <li>Mapas de productividad</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">🌐</div>
-                    <h3>Conectividad 5G/IoT</h3>
-                    <p>Sistema de comunicación en tiempo real que permite el control remoto y la actualización
-                        constante.</p>
-                    <ul class="tech-features">
-                        <li>Transmisión de datos en tiempo real</li>
-                        <li>Control remoto desde cualquier dispositivo</li>
-                        <li>Actualizaciones Over-the-Air (OTA)</li>
-                        <li>Integración con plataformas agrícolas</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section with Social -->
-    <br>
-    <section class="scroll-section" id="Innovacion">
-        <div class="scroll-image" style="background-image: url('img/fondos/campo2.jpg')"></div>
-        <div class="container">
-            <br>
-            <br>
+    <main id="main-content">
+        <section class="hero" id="inicio">
+            <div class="hero-image"></div>
             <div class="container">
-                <div class="text-overlay">
-                    <h2 class="section-title">La falta de tecnología en la agricultura guanajuatense</h2>
-                    <p class="section-text">En Guanajuato, el 65% de los productores agrícolas aún utilizan métodos
-                        tradicionales de aplicación de insumos. Esto provoca baja productividad, desperdicio de recursos
-                        y menores ingresos para los productores.</p>
-                    <p class="section-text">La tecnificación agrícola ayuda a mejorar la eficiencia, cuidar el agua y
-                        fortalecer el desarrollo rural sostenible en el estado.</p>
-                </div>
-            </div>
-            <br>
-            <br>
-        </div>
-    </section>
+                <div class="hero-content">
+                    <br>
+                    <h1 class="hero-title">InsectraX: Tecnología que Protege al Campo Guanajuatense</h1>
+                    <p class="hero-subtitle">Revolucionamos la agricultura con un robot autónomo que reduce la
+                        exposición a
+                        químicos, mejora la productividad y cuida la salud de los agricultores.</p>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="galeria">
-        <div class="container">
-            <div class="section-header">
-                <h2>Galería InsectraX</h2>
-                <p>Descubre nuestro robot en acción</p>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="img/galeria/robot1.png" alt="InsectraX en campo abierto" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>InsectraX en operación</span>
+                    <div class="hero-buttons">
+                        <a href="#tecnologia" class="hero-button secondary">Ver Tecnología</a>
+                        <a href="#calculadora" class="hero-button primary">Calcular Ahorro</a>
+                        <button class="hero-button primary" data-contact="true">Contactar Ahora</button>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/galeria/robot2.png" alt="Sistema de aplicación" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Sistema de aplicación preciso</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/galeria/robot3.png" alt="Panel solar" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Energía solar integrada</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonios">
-        <div class="container">
-            <div class="section-header">
-                <h2>Opiniones Expertas</h2>
-                <p>Lo que dicen especialistas sobre nuestro proyecto</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"El concepto de InsectraX aborda una necesidad crítica en la agricultura
-                        guanajuatense. La reducción de exposición a químicos podría transformar la seguridad laboral en
-                        el campo y establecer nuevos estándares de sostenibilidad."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">GC</div>
-                        <div class="author-info">
-                            <h4>Dr. Gael Carrillo</h4>
-                            <p>Especialista en Agrotecnología</p>
-                            <span class="author-role">Consultor Agrícola - León, Gto.</span>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>40%</h3>
+                            <p>Menos químicos</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"La integración de energía solar con IA posiciona a InsectraX como una
-                        solución prometedora para los cultivos de Guanajuato. El potencial de reducción del 40% en
-                        insumos representaría un avance significativo."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">EG</div>
-                        <div class="author-info">
-                            <h4>Ing. Elena González</h4>
-                            <p>Investigadora en Sustentabilidad</p>
-                            <span class="author-role">Universidad de Guanajuato</span>
+                        <div class="stat">
+                            <h3>35%</h3>
+                            <p>Más productividad</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Como proyecto innovador, InsectraX demuestra comprensión de los
-                        desafíos reales del campo guanajuatense. Su enfoque en accesibilidad para pequeños agricultores
-                        podría democratizar tecnología avanzada."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">EC</div>
-                        <div class="author-info">
-                            <h4>Mtro. Emmanuel Cortés</h4>
-                            <p>Experto en Desarrollo Rural</p>
-                            <span class="author-role">Asesor de Proyectos Agrícolas</span>
+                        <div class="stat">
+                            <h3>60%</h3>
+                            <p>Menos riesgo</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Fuentes y Referencias -->
-    <section class="features-section" id="fuentes">
-        <div class="container">
-            <div class="section-header">
-                <h2>Fuentes y Referencias</h2>
-                <p>Datos respaldados por instituciones oficiales y estudios especializados</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Estadísticas Agrícolas</h3>
-                    <p>Datos oficiales sobre producción y superficie agrícola en Guanajuato</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>SIAP - Atlas Agroalimentario 2023</li>
-                        <li>INEGI - Censo Agrícola 2022</li>
-                        <li>SADER - Estadísticas del Campo</li>
-                    </ul>
+        <!-- Realidad Agrícola en Guanajuato -->
+        <section class="features-section" id="problematica">
+            <div class="container">
+                <div class="section-header">
+                    <h2>La Realidad Agrícola en Guanajuato</h2>
+                    <p>Datos que inspiran nuestra solución</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>Recursos Hídricos</h3>
-                    <p>Información sobre uso y disponibilidad de agua en el sector agrícola</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>CONAGUA - Estadísticas Hídricas 2024</li>
-                        <li>CEAG - Comisión Estatal del Agua</li>
-                        <li>FAO - AQUASTAT</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🌾</div>
-                    <h3>Salud y Seguridad</h3>
-                    <p>Estudios sobre impacto de agroquímicos en la salud de agricultores</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>OMS - Reporte Salud Agrícola 2023</li>
-                        <li>Secretaría de Salud - Estadísticas</li>
-                        <li>IMSS - Salud en el Trabajo</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Economía Agrícola</h3>
-                    <p>Análisis económicos y estudios de impacto financiero</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>FIRA - Análisis Económico 2023</li>
-                        <li>Banxico - Reportes Sectoriales</li>
-                        <li>SADER - Indicadores Económicos</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔬</div>
-                    <h3>Investigación Agrícola</h3>
-                    <p>Estudios técnicos y publicaciones especializadas</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>INIFAP - Investigaciones</li>
-                        <li>Universidad de Guanajuato</li>
-                        <li>Colegio de Postgraduados</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Sostenibilidad</h3>
-                    <p>Reportes sobre agricultura sostenible y buenas prácticas</p>
-                    <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        <li>FAO - Objetivos de Desarrollo Sostenible</li>
-                        <li>SADER - Agricultura Sustentable</li>
-                        <li>SEMARNAT - Reportes Ambientales</li>
-                    </ul>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Producción Agrícola</h3>
+                        <p><strong>4.2 millones</strong> de toneladas de productos agrícolas anuales</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="data-source">Fuente: SIAP 2023 - Atlas Agroalimentario</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚜</div>
+                        <h3>Superficie Agrícola</h3>
+                        <p><strong>722,000 hectáreas</strong> dedicadas a la agricultura en el estado</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                        <div class="data-source">Fuente: INEGI - Censo Agrícola 2022</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚠️</div>
+                        <h3>Problema de Plagas</h3>
+                        <p><strong>35% de pérdidas</strong> en cultivos por plagas no controladas eficientemente</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 35%"></div>
+                        </div>
+                        <div class="data-source">Fuente: SADER - Reporte Fitosanitario 2023</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Uso de Agua</h3>
+                        <p><strong>85% del agua</strong> disponible se destina al sector agrícola en Guanajuato</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="data-source">Fuente: CONAGUA - Estadísticas Hídricas 2024</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🌾</div>
+                        <h3>Agricultores en Riesgo</h3>
+                        <p><strong>150,000 productores</strong> expuestos regularmente a agroquímicos peligrosos</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <div class="data-source">Fuente: OMS - Reporte Salud Agrícola 2023</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Pérdidas Económicas</h3>
+                        <p><strong>$2,800 MDP anuales</strong> por ineficiencias en aplicación de insumos</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <div class="data-source">Fuente: FIRA - Análisis Económico Agrícola 2023</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                <h4 style="color: #2c3e50; margin-bottom: 15px;">🔍 Nota Metodológica</h4>
-                <p style="color: #666; line-height: 1.6;">Los datos presentados en esta página provienen de fuentes
-                    oficiales y estudios especializados. Las proyecciones de impacto se basan en análisis comparativos
-                    con tecnologías similares y estudios de caso en condiciones equivalentes.</p>
+        <!-- Features Section -->
+        <section class="features-section" id="caracteristicas">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Características Principales</h2>
+                    <p>Tecnología avanzada diseñada para el agricultor moderno</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">☀️</div>
+                        <h3>Energía Solar</h3>
+                        <p>Sistema de carga sostenible con paneles solares integrados para operación continua y
+                            ecológica
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Protección Total</h3>
+                        <p>Sistema completamente cerrado que elimina el contacto directo con productos químicos
+                            peligrosos
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Precisión Inteligente</h3>
+                        <p>Aplicación exacta de insumos según las necesidades específicas de cada zona del cultivo</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚜</div>
+                        <h3>Movilidad Superior</h3>
+                        <p>Diseño con orugas que permite desplazamiento eficiente en cualquier tipo de terreno agrícola
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Monitoreo en Tiempo Real</h3>
+                        <p>Sensores avanzados que proporcionan datos precisos para la toma de decisiones informadas</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Optimización de Recursos</h3>
+                        <p>Reducción del 40% en el uso de agua y productos químicos mediante aplicación inteligente</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Final CTA Section -->
-    <section class="scroll-section">
-        <div class="scroll-image" style="background-image: url('img/fondos/campo3.jpg')"></div>
-        <div class="container">
+        <!-- Beneficios Cuantificables -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resultados Esperados</h2>
+                    <p>Impacto medible en la agricultura de Guanajuato</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📉</div>
+                        <h3>40% Reducción</h3>
+                        <p>En el uso de químicos mediante aplicación inteligente y precisa</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>35% Aumento</h3>
+                        <p>En productividad gracias al monitoreo continuo y aplicación optimizada</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>60% Menos Riesgo</h3>
+                        <p>De exposición a químicos para agricultores y trabajadores</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>50% Menos Agua</h3>
+                        <p>En el uso de recursos hídricos mediante aplicación dirigida</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Details Section -->
+        <section class="technology-details" id="tecnologia">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tecnología Avanzada</h2>
+                    <p>Sistemas innovadores que hacen de InsectraX la solución más completa</p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">🤖</div>
+                        <h3>Inteligencia Artificial</h3>
+                        <p>Algoritmos de machine learning que optimizan la aplicación de insumos según las condiciones
+                            específicas de cada cultivo.</p>
+                        <ul class="tech-features">
+                            <li>Reconocimiento de plagas y enfermedades</li>
+                            <li>Análisis predictivo de rendimiento</li>
+                            <li>Optimización automática de rutas</li>
+                            <li>Aprendizaje continuo del terreno</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-icon">📡</div>
+                        <h3>Sensores Multiespectrales</h3>
+                        <p>Tecnología de detección avanzada que analiza el estado de salud de las plantas en tiempo
+                            real.
+                        </p>
+                        <ul class="tech-features">
+                            <li>Análisis NDVI (Índice de Vegetación)</li>
+                            <li>Detección de estrés hídrico</li>
+                            <li>Monitoreo de clorofila</li>
+                            <li>Mapas de productividad</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-icon">🌐</div>
+                        <h3>Conectividad 5G/IoT</h3>
+                        <p>Sistema de comunicación en tiempo real que permite el control remoto y la actualización
+                            constante.</p>
+                        <ul class="tech-features">
+                            <li>Transmisión de datos en tiempo real</li>
+                            <li>Control remoto desde cualquier dispositivo</li>
+                            <li>Actualizaciones Over-the-Air (OTA)</li>
+                            <li>Integración con plataformas agrícolas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculadora de ROI -->
+        <section class="calculator-section" id="calculadora">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Calcula tu Ahorro</h2>
+                    <p>Descubre cuánto puedes economizar con InsectraX</p>
+                </div>
+
+                <div class="calculator">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="hectareas">Hectáreas cultivadas:</label>
+                            <input type="range" id="hectareas" min="1" max="100" value="10">
+                            <span id="hectareas-value" class="value-display">10 ha</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="gasto-quimicos">Gasto actual en químicos (mensual MXN):</label>
+                            <input type="number" id="gasto-quimicos" value="5000" min="0" step="500">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="gasto-agua">Gasto actual en agua (mensual MXN):</label>
+                            <input type="number" id="gasto-agua" value="3000" min="0" step="500">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="tipo-cultivo">Tipo de cultivo:</label>
+                            <select id="tipo-cultivo">
+                                <option value="1">Maíz</option>
+                                <option value="1.2">Trigo</option>
+                                <option value="1.5">Hortalizas</option>
+                                <option value="1.3">Frutales</option>
+                                <option value="1.4">Berries</option>
+                            </select>
+                        </div>
+
+                        <button id="calcular-btn" class="hero-button primary">Calcular Ahorro</button>
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="result-card">
+                            <h3>Tu Ahorro Estimado</h3>
+                            <div class="result-item">
+                                <span class="result-label">Ahorro mensual:</span>
+                                <span id="ahorro-mensual" class="result-value">$0 MXN</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Ahorro anual:</span>
+                                <span id="ahorro-anual" class="result-value">$0 MXN</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Retorno de inversión:</span>
+                                <span id="roi" class="result-value">0 meses</span>
+                            </div>
+                            <div class="result-item highlight">
+                                <span class="result-label">Inversión recuperada en:</span>
+                                <span id="tiempo-recuperacion" class="result-value">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-explanation">
+                    <h4>¿Cómo calculamos tu ahorro?</h4>
+                    <ul>
+                        <li><strong>40% de ahorro en químicos</strong> mediante aplicación precisa</li>
+                        <li><strong>50% de ahorro en agua</strong> con riego optimizado</li>
+                        <li><strong>35% aumento en productividad</strong> con monitoreo inteligente</li>
+                        <li>Costo del robot InsectraX: <strong>$50,000 MXN</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Preguntas Frecuentes</h2>
+                    <p>Resolvemos tus dudas sobre InsectraX</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            ¿Cómo se carga el robot?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>InsectraX utiliza paneles solares integrados para carga automática durante el día, con
+                                batería de respaldo para operación nocturna. La autonomía completa es de 12 horas
+                                continuas.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            ¿Qué mantenimiento requiere?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Mantenimiento mínimo: limpieza semanal de sensores y revisión mensual de sistemas.
+                                Incluimos capacitación completa y soporte técnico remoto.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            ¿Funciona en todo tipo de cultivos?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, InsectraX está diseñado para adaptarse a diversos cultivos como maíz, trigo,
+                                hortalizas, frutales y berries. El sistema se configura según las necesidades
+                                específicas de cada cultivo.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            ¿Qué garantía incluye?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ofrecemos 2 años de garantía en componentes electrónicos y mecánicos, más 1 año de
+                                soporte técnico gratuito y actualizaciones de software.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            ¿Es compatible con sistemas de riego existentes?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Totalmente compatible. InsectraX puede integrarse con sistemas de riego por goteo,
+                                aspersión y pivote central mediante conectores estandarizados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section with Social -->
+        <br>
+        <section class="scroll-section" id="Innovacion">
+            <div class="scroll-image" style="background-image: url('img/fondos/campo2.jpg')"></div>
             <div class="container">
                 <br>
                 <br>
-                <div class="text-overlay">
-                    <h2 class="section-title">Innovación en Acción</h2>
-                    <p class="section-text">InsectraX combina lo mejor de la robótica, inteligencia artificial y energía
-                        renovable para crear una solución integral que transforma la agricultura tradicional.</p>
-                    <p class="section-text">Nuestro sistema de navegación autónoma utiliza GPS de alta precisión y
-                        sensores LiDAR para operar con exactitud milimétrica, incluso en condiciones climáticas
-                        adversas.</p>
-                    <p class="section-text">La plataforma en la nube procesa terabytes de datos diarios, proporcionando
-                        insights valiosos y recomendaciones personalizadas para maximizar cada cosecha.</p>
+                <div class="container">
+                    <div class="text-overlay">
+                        <h2 class="section-title">La falta de tecnología en la agricultura guanajuatense</h2>
+                        <p class="section-text">En Guanajuato, el 65% de los productores agrícolas aún utilizan métodos
+                            tradicionales de aplicación de insumos. Esto provoca baja productividad, desperdicio de
+                            recursos
+                            y menores ingresos para los productores.</p>
+                        <p class="section-text">La tecnificación agrícola ayuda a mejorar la eficiencia, cuidar el agua
+                            y
+                            fortalecer el desarrollo rural sostenible en el estado.</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </section>
 
-                    <!-- Iconos sociales integrados -->
-                    <div class="social-section">
-                        <h3 style="color: #ffffff; margin: 30px 0 20px 0; text-align: center;">Síguenos en redes
-                            sociales</h3>
-                        <div class="social-icons-container">
-                            <a href="#" class="social-icon instagram">
-                                <svg viewBox="0 0 16 16" width="24" height="24">
-                                    <path fill="currentColor"
-                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 1 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 1 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
-                                    </path>
-                                </svg>
-                            </a>
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="galeria">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Galería InsectraX</h2>
+                    <p>Descubre nuestro robot en acción</p>
+                </div>
 
-                            <a href="#" class="social-icon twitter">
-                                <svg viewBox="0 0 16 16" width="24" height="24">
-                                    <path fill="currentColor"
-                                        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
-                                    </path>
-                                </svg>
-                            </a>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img/galeria/robot1.png" alt="InsectraX en campo abierto" loading="lazy"
+                            data-src="img/galeria/robot1.png">
+                        <div class="gallery-overlay">
+                            <span>InsectraX en operación</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/galeria/robot2.png" alt="Sistema de aplicación" loading="lazy"
+                            data-src="img/galeria/robot2.png">
+                        <div class="gallery-overlay">
+                            <span>Sistema de aplicación preciso</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/galeria/robot3.png" alt="Panel solar" loading="lazy"
+                            data-src="img/galeria/robot3.png">
+                        <div class="gallery-overlay">
+                            <span>Energía solar integrada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                            <a href="#" class="social-icon linkedin">
-                                <svg viewBox="0 0 448 512" width="24" height="24">
-                                    <path fill="currentColor"
-                                        d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
-                                    </path>
-                                </svg>
-                            </a>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section" id="testimonios">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Opiniones Expertas</h2>
+                    <p>Lo que dicen especialistas sobre nuestro proyecto</p>
+                </div>
 
-                            <a href="#" class="social-icon whatsapp">
-                                <svg viewBox="0 0 16 16" width="24" height="24">
-                                    <path fill="currentColor"
-                                        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
-                                    </path>
-                                </svg>
-                            </a>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"El concepto de InsectraX aborda una necesidad crítica en la
+                            agricultura
+                            guanajuatense. La reducción de exposición a químicos podría transformar la seguridad laboral
+                            en
+                            el campo y establecer nuevos estándares de sostenibilidad."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">GC</div>
+                            <div class="author-info">
+                                <h4>Dr. Gael Carrillo</h4>
+                                <p>Especialista en Agrotecnología</p>
+                                <span class="author-role">Consultor Agrícola - León, Gto.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"La integración de energía solar con IA posiciona a InsectraX como
+                            una
+                            solución prometedora para los cultivos de Guanajuato. El potencial de reducción del 40% en
+                            insumos representaría un avance significativo."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EG</div>
+                            <div class="author-info">
+                                <h4>Ing. Elena González</h4>
+                                <p>Investigadora en Sustentabilidad</p>
+                                <span class="author-role">Universidad de Guanajuato</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Como proyecto innovador, InsectraX demuestra comprensión de los
+                            desafíos reales del campo guanajuatense. Su enfoque en accesibilidad para pequeños
+                            agricultores
+                            podría democratizar tecnología avanzada."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EC</div>
+                            <div class="author-info">
+                                <h4>Mtro. Emmanuel Cortés</h4>
+                                <p>Experto en Desarrollo Rural</p>
+                                <span class="author-role">Asesor de Proyectos Agrícolas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fuentes y Referencias -->
+        <section class="features-section" id="fuentes">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fuentes y Referencias</h2>
+                    <p>Datos respaldados por instituciones oficiales y estudios especializados</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Estadísticas Agrícolas</h3>
+                        <p>Datos oficiales sobre producción y superficie agrícola en Guanajuato</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>SIAP - Atlas Agroalimentario 2023</li>
+                            <li>INEGI - Censo Agrícola 2022</li>
+                            <li>SADER - Estadísticas del Campo</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Recursos Hídricos</h3>
+                        <p>Información sobre uso y disponibilidad de agua en el sector agrícola</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>CONAGUA - Estadísticas Hídricas 2024</li>
+                            <li>CEAG - Comisión Estatal del Agua</li>
+                            <li>FAO - AQUASTAT</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🌾</div>
+                        <h3>Salud y Seguridad</h3>
+                        <p>Estudios sobre impacto de agroquímicos en la salud de agricultores</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>OMS - Reporte Salud Agrícola 2023</li>
+                            <li>Secretaría de Salud - Estadísticas</li>
+                            <li>IMSS - Salud en el Trabajo</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Economía Agrícola</h3>
+                        <p>Análisis económicos y estudios de impacto financiero</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>FIRA - Análisis Económico 2023</li>
+                            <li>Banxico - Reportes Sectoriales</li>
+                            <li>SADER - Indicadores Económicos</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3>Investigación Agrícola</h3>
+                        <p>Estudios técnicos y publicaciones especializadas</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>INIFAP - Investigaciones</li>
+                            <li>Universidad de Guanajuato</li>
+                            <li>Colegio de Postgraduados</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Sostenibilidad</h3>
+                        <p>Reportes sobre agricultura sostenible y buenas prácticas</p>
+                        <ul style="text-align: left; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            <li>FAO - Objetivos de Desarrollo Sostenible</li>
+                            <li>SADER - Agricultura Sustentable</li>
+                            <li>SEMARNAT - Reportes Ambientales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 15px;">🔍 Nota Metodológica</h4>
+                    <p style="color: #666; line-height: 1.6;">Los datos presentados en esta página provienen de fuentes
+                        oficiales y estudios especializados. Las proyecciones de impacto se basan en análisis
+                        comparativos
+                        con tecnologías similares y estudios de caso en condiciones equivalentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="scroll-section">
+            <div class="scroll-image" style="background-image: url('img/fondos/campo3.jpg')"></div>
+            <div class="container">
+                <div class="container">
+                    <br>
+                    <br>
+                    <div class="text-overlay">
+                        <h2 class="section-title">Innovación en Acción</h2>
+                        <p class="section-text">InsectraX combina lo mejor de la robótica, inteligencia artificial y
+                            energía
+                            renovable para crear una solución integral que transforma la agricultura tradicional.</p>
+                        <p class="section-text">Nuestro sistema de navegación autónoma utiliza GPS de alta precisión y
+                            sensores LiDAR para operar con exactitud milimétrica, incluso en condiciones climáticas
+                            adversas.</p>
+                        <p class="section-text">La plataforma en la nube procesa terabytes de datos diarios,
+                            proporcionando
+                            insights valiosos y recomendaciones personalizadas para maximizar cada cosecha.</p>
+
+                        <!-- Iconos sociales integrados -->
+                        <div class="social-section">
+                            <h3 style="color: #ffffff; margin: 30px 0 20px 0; text-align: center;">Síguenos en redes
+                                sociales</h3>
+                            <div class="social-icons-container">
+                                <a href="#" class="social-icon instagram">
+                                    <svg viewBox="0 0 16 16" width="24" height="24">
+                                        <path fill="currentColor"
+                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 1 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 1 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                                        </path>
+                                    </svg>
+                                </a>
+
+                                <a href="#" class="social-icon twitter">
+                                    <svg viewBox="0 0 16 16" width="24" height="24">
+                                        <path fill="currentColor"
+                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                                        </path>
+                                    </svg>
+                                </a>
+
+                                <a href="#" class="social-icon linkedin">
+                                    <svg viewBox="0 0 448 512" width="24" height="24">
+                                        <path fill="currentColor"
+                                            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                                        </path>
+                                    </svg>
+                                </a>
+
+                                <a href="#" class="social-icon whatsapp">
+                                    <svg viewBox="0 0 16 16" width="24" height="24">
+                                        <path fill="currentColor"
+                                            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <br>
             </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer id="contacto">
@@ -516,6 +769,8 @@
                         <li><a href="#problematica">Problemática</a></li>
                         <li><a href="#caracteristicas">Características</a></li>
                         <li><a href="#tecnologia">Tecnología</a></li>
+                        <li><a href="#calculadora">Calculadora</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#fuentes">Fuentes</a></li>
                         <li><a href="#testimonios">Opiniones</a></li>
                     </ul>
@@ -539,19 +794,14 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-        (function () {
-            var script = document.createElement('script');
-            script.dataset.bot = "68e9ce94ba0e3e818618c369";
-            script.dataset.zindex = "99999";
-            script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
-            script.async = true;
-            script.defer = true;
-            document.getElementsByTagName('head')[0].appendChild(script);
-        })()
-    </script>
-    <!-- Botón de cambio de tema -->
+    <!-- Botón flotante CTA -->
+    <div class="floating-cta">
+        <a href="#contacto" class="cta-button">
+            <span>📧</span> Contactar
+        </a>
+    </div>
+
+    <!-- Toggle de tema -->
     <div class="theme-toggle-container">
         <label class="theme-switch">
             <input type="checkbox" class="theme-switch__checkbox">
@@ -576,6 +826,63 @@
             </div>
         </label>
     </div>
+    <!-- Panel de debug de Analytics (quitar en producción) -->
+    <div id="analytics-debug"
+        style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; font-size: 12px; z-index: 10000;">
+        <strong>📊 Analytics Debug</strong>
+        <div id="analytics-events"></div>
+    </div>
+
+    <script>
+        // Debug de eventos analytics
+        const debugPanel = document.getElementById('analytics-events');
+        let eventCount = 0;
+
+        function logAnalyticsEvent(event, data) {
+            eventCount++;
+            const eventElement = document.createElement('div');
+            eventElement.style.marginTop = '5px';
+            eventElement.style.padding = '2px 5px';
+            eventElement.style.background = '#2c3e50';
+            eventElement.style.borderRadius = '3px';
+            eventElement.innerHTML = `${eventCount}. ${event}: ${JSON.stringify(data)}`;
+            debugPanel.appendChild(eventElement);
+
+            // Mantener solo últimos 5 eventos
+            if (debugPanel.children.length > 5) {
+                debugPanel.removeChild(debugPanel.firstChild);
+            }
+        }
+
+        // Interceptar eventos analytics
+        const originalTrackEvent = window.InsectraXAnalytics?.trackEvent;
+        if (originalTrackEvent) {
+            window.InsectraXAnalytics.trackEvent = function (category, action, label, value) {
+                logAnalyticsEvent(action, { category, label, value });
+                return originalTrackEvent.call(this, category, action, label, value);
+            };
+        }
+    </script>
+
+    <!-- Incluir todos los scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/calculadora.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/formularios.js"></script>
+    <script src="js/galeria.js"></script>
+    <script src="js/optimizaciones.js"></script>
+
+    <script>
+        (function () {
+            var script = document.createElement('script');
+            script.dataset.bot = "68e9ce94ba0e3e818618c369";
+            script.dataset.zindex = "99999";
+            script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+            script.async = true;
+            script.defer = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        })()
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,8 @@
-// Animación de elementos al hacer scroll
+// js/main.js - ARCHIVO COMPLETO Y FUNCIONAL
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('InsectraX - Inicializando aplicación...');
+    
+    // ===== CÓDIGO ORIGINAL (que ya funcionaba) =====
     // Elementos del menú móvil
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -51,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                
                 // Animar features cards con delay
                 if (entry.target.classList.contains('features-grid')) {
                     const cards = entry.target.querySelectorAll('.feature-card');
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }, index * 200);
                     });
                 }
+                
                 // Animar tech cards con delay
                 if (entry.target.classList.contains('tech-grid')) {
                     const cards = entry.target.querySelectorAll('.tech-card');
@@ -74,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, observerOptions);
-
 
     // Observar elementos con efecto de desplazamiento
     document.querySelectorAll('.scroll-section .text-overlay, .features-grid, .tech-grid, .testimonials-grid').forEach(element => {
@@ -105,15 +109,49 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Pa cerrar menu con Esc
+    // Cerrar menu con Esc
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             toggleMenu();
         }
     });
+
+    // Inicializar tema
+    initializeTheme();
+
+    // FAQ functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function () {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open current if wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+            } else {
+                this.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // ===== NUEVAS FUNCIONALIDADES =====
+    inicializarAnalytics();
+    inicializarFormularios();
+    inicializarGaleria();
+    inicializarOptimizaciones();
+    inicializarServiceWorker();
+    
+    console.log('Aplicación InsectraX inicializada correctamente');
 });
 
-// JavaScript corregido
+// ===== FUNCIONES DE TEMA (existentes) =====
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -131,7 +169,6 @@ function toggleTheme() {
     }
 }
 
-// Inicializar el tema al cargar la página
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'dark'; // Modo oscuro por defecto
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -144,5 +181,91 @@ function initializeTheme() {
     }
 }
 
-// Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initializeTheme);
+// ===== NUEVAS FUNCIONES DE INICIALIZACIÓN =====
+
+// Analytics
+function inicializarAnalytics() {
+    if (typeof InsectraXAnalytics !== 'undefined') {
+        InsectraXAnalytics.init();
+        console.log('✅ Analytics inicializado');
+    } else {
+        console.log('❌ Analytics no disponible');
+    }
+}
+
+// Formularios
+function inicializarFormularios() {
+    if (typeof InsectraXFormHandler !== 'undefined') {
+        InsectraXFormHandler.init();
+        console.log('✅ Formularios inicializados');
+    } else {
+        console.log('❌ Formularios no disponibles');
+    }
+}
+
+// Galería
+function inicializarGaleria() {
+    if (typeof InsectraXGallery !== 'undefined') {
+        InsectraXGallery.init();
+        console.log('✅ Galería inicializada');
+    } else {
+        console.log('❌ Galería no disponible');
+    }
+}
+
+// Optimizaciones
+function inicializarOptimizaciones() {
+    if (typeof InsectraXOptimizations !== 'undefined') {
+        InsectraXOptimizations.init();
+        console.log('✅ Optimizaciones inicializadas');
+    } else {
+        console.log('❌ Optimizaciones no disponibles');
+    }
+}
+
+// Service Worker
+function inicializarServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('✅ Service Worker registrado:', registration))
+            .catch(error => console.log('❌ Error registrando Service Worker:', error));
+    }
+}
+
+// Función global para notificaciones (necesaria para formularios)
+function mostrarNotificacion(mensaje, tipo = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${tipo}`;
+    notification.innerHTML = `
+        <span>${mensaje}</span>
+        <button onclick="this.parentElement.remove()">×</button>
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${tipo === 'success' ? '#27ae60' : tipo === 'error' ? '#e74c3c' : '#3498db'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: slideInRight 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remover después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+}
+
+// Hacerla global para que otros archivos la usen
+window.mostrarNotificacion = mostrarNotificacion;
