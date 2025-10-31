@@ -58,7 +58,6 @@ class FormHandler {
                 throw new Error(response.message || 'Error en el servidor');
             }
         } catch (error) {
-            console.error('Error en newsletter:', error);
             this.showNotification('Error al enviar. Intenta nuevamente.', 'error');
         } finally {
             submitButton.textContent = originalText;

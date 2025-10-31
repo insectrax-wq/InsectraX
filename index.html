@@ -65,7 +65,6 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TK5CN5LC" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <header id="main-header" role="banner">
@@ -81,7 +80,6 @@
                         <li role="none"><a href="#problematica" role="menuitem">Problemática</a></li>
                         <li role="none"><a href="#caracteristicas" role="menuitem">Características</a></li>
                         <li role="none"><a href="#tecnologia" role="menuitem">Tecnología</a></li>
-                        <li role="none"><a href="#calculadora" role="menuitem">Calculadora</a></li>
                         <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
                         <li role="none"><a href="#galeria" role="menuitem">Galería</a></li>
                         <li role="none"><a href="#testimonios" role="menuitem">Opiniones</a></li>
@@ -112,7 +110,6 @@
 
                     <div class="hero-buttons">
                         <a href="#tecnologia" class="hero-button secondary">Ver Tecnología</a>
-                        <a href="#calculadora" class="hero-button primary">Calcular Ahorro</a>
                         <button class="hero-button primary" data-contact="true">Contactar Ahora</button>
                     </div>
 
@@ -333,77 +330,111 @@
             </div>
         </section>
 
-        <!-- Calculadora de ROI -->
-        <section class="calculator-section" id="calculadora">
+        <!-- Tour Virtual 360° con Three.js -->
+        <section class="tour-section" id="tour-virtual">
             <div class="container">
                 <div class="section-header">
-                    <h2>Calcula tu Ahorro</h2>
-                    <p>Descubre cuánto puedes economizar con InsectraX</p>
+                    <h2>Tour Virtual 360° del InsectraX</h2>
+                    <p>Explora cada componente de nuestro robot agrícola inteligente en 3D</p>
                 </div>
 
-                <div class="calculator">
-                    <div class="calculator-inputs">
-                        <div class="input-group">
-                            <label for="hectareas">Hectáreas cultivadas:</label>
-                            <input type="range" id="hectareas" min="1" max="100" value="10">
-                            <span id="hectareas-value" class="value-display">10 ha</span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="gasto-quimicos">Gasto actual en químicos (mensual MXN):</label>
-                            <input type="number" id="gasto-quimicos" value="5000" min="0" step="500">
-                        </div>
-
-                        <div class="input-group">
-                            <label for="gasto-agua">Gasto actual en agua (mensual MXN):</label>
-                            <input type="number" id="gasto-agua" value="3000" min="0" step="500">
-                        </div>
-
-                        <div class="input-group">
-                            <label for="tipo-cultivo">Tipo de cultivo:</label>
-                            <select id="tipo-cultivo">
-                                <option value="1">Maíz</option>
-                                <option value="1.2">Trigo</option>
-                                <option value="1.5">Hortalizas</option>
-                                <option value="1.3">Frutales</option>
-                                <option value="1.4">Berries</option>
-                            </select>
-                        </div>
-
-                        <button id="calcular-btn" class="hero-button primary">Calcular Ahorro</button>
-                    </div>
-
-                    <div class="calculator-results">
-                        <div class="result-card">
-                            <h3>Tu Ahorro Estimado</h3>
-                            <div class="result-item">
-                                <span class="result-label">Ahorro mensual:</span>
-                                <span id="ahorro-mensual" class="result-value">$0 MXN</span>
+                <div class="tour-container">
+                    <!-- Contenedor Three.js -->
+                    <div class="tour-viewer">
+                        <div class="threejs-container" id="robot3dContainer">
+                            <canvas id="robot3dCanvas"></canvas>
+                            <div class="loading-3d">
+                                <div class="spinner"></div>
+                                <p>Cargando modelo 3D...</p>
                             </div>
-                            <div class="result-item">
-                                <span class="result-label">Ahorro anual:</span>
-                                <span id="ahorro-anual" class="result-value">$0 MXN</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Retorno de inversión:</span>
-                                <span id="roi" class="result-value">0 meses</span>
-                            </div>
-                            <div class="result-item highlight">
-                                <span class="result-label">Inversión recuperada en:</span>
-                                <span id="tiempo-recuperacion" class="result-value">-</span>
+                            <div class="viewer-controls">
+                                <button class="control-btn" id="rotateAuto" title="Rotación automática">⏸️</button>
+                                <button class="control-btn" id="zoomIn" title="Acercar">➕</button>
+                                <button class="control-btn" id="zoomOut" title="Alejar">➖</button>
+                                <button class="control-btn" id="resetView" title="Vista inicial">⟲</button>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Información de componentes -->
+                    <div class="component-info">
+                        <h3 id="componentTitle">InsectraX - Robot Agrícola Autónomo</h3>
+                        <p id="componentDescription">Haz clic en los componentes del robot o usa los controles para
+                            explorar en 3D</p>
+
+                        <div class="component-features">
+                            <div class="feature-list" id="featureList">
+                                <div class="feature-item">🔄 Click y arrastra para rotar</div>
+                                <div class="feature-item">🔍 Rueda del mouse para zoom</div>
+                                <div class="feature-item">🎯 Click en componentes para info</div>
+                            </div>
+                        </div>
+
+                        <!-- Navegación rápida -->
+                        <div class="quick-nav">
+                            <h4>Componentes Destacados</h4>
+                            <div class="nav-buttons">
+                                <button class="nav-btn" data-component="solar">
+                                    <span class="nav-icon">☀️</span>
+                                    Panel Solar
+                                </button>
+                                <button class="nav-btn" data-component="sensors">
+                                    <span class="nav-icon">📡</span>
+                                    Sensores IA
+                                </button>
+                                <button class="nav-btn" data-component="application">
+                                    <span class="nav-icon">💧</span>
+                                    Sistema de Aplicación
+                                </button>
+                                <button class="nav-btn" data-component="camera">
+                                    <span class="nav-icon">📷</span>
+                                    Cámara HD
+                                </button>
+                                <button class="nav-btn" data-component="battery">
+                                    <span class="nav-icon">🔋</span>
+                                    Batería
+                                </button>
+                                <button class="nav-btn" data-component="chassis">
+                                    <span class="nav-icon">🚜</span>
+                                    Chasis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="calculator-explanation">
-                    <h4>¿Cómo calculamos tu ahorro?</h4>
-                    <ul>
-                        <li><strong>40% de ahorro en químicos</strong> mediante aplicación precisa</li>
-                        <li><strong>50% de ahorro en agua</strong> con riego optimizado</li>
-                        <li><strong>35% aumento en productividad</strong> con monitoreo inteligente</li>
-                        <li>Costo del robot InsectraX: <strong>$50,000 MXN</strong></li>
-                    </ul>
+                <!-- Especificaciones técnicas -->
+                <div class="tech-specs">
+                    <h3>Especificaciones Técnicas del InsectraX</h3>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h4>⚡ Energía & Autonomía</h4>
+                            <ul>
+                                <li><strong>Paneles solares:</strong> 400W integrados</li>
+                                <li><strong>Batería:</strong> Litio 48V 100Ah</li>
+                                <li><strong>Autonomía:</strong> 12 horas continuas</li>
+                                <li><strong>Carga solar:</strong> 6-8 horas completas</li>
+                            </ul>
+                        </div>
+                        <div class="spec-card">
+                            <h4>🎯 Precisión & Sensores</h4>
+                            <ul>
+                                <li><strong>GPS:</strong> Precisión ±2cm RTK</li>
+                                <li><strong>Sensores:</strong> Multiespectrales + NIR</li>
+                                <li><strong>Cámara:</strong> 4K con IA integrada</li>
+                                <li><strong>Scanning:</strong> 360° en tiempo real</li>
+                            </ul>
+                        </div>
+                        <div class="spec-card">
+                            <h4>🚜 Movilidad & Diseño</h4>
+                            <ul>
+                                <li><strong>Orugas:</strong> Goma reforzada</li>
+                                <li><strong>Velocidad:</strong> 0-5 km/h ajustable</li>
+                                <li><strong>Inclinación:</strong> Hasta 30°</li>
+                                <li><strong>Peso:</strong> 85 kg</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -794,80 +825,9 @@
         </div>
     </footer>
 
-    <!-- Botón flotante CTA -->
-    <div class="floating-cta">
-        <a href="#contacto" class="cta-button">
-            <span>📧</span> Contactar
-        </a>
-    </div>
-
-    <!-- Toggle de tema -->
-    <div class="theme-toggle-container">
-        <label class="theme-switch">
-            <input type="checkbox" class="theme-switch__checkbox">
-            <div class="theme-switch__container">
-                <div class="theme-switch__clouds"></div>
-                <div class="theme-switch__stars-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="currentColor">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z">
-                        </path>
-                    </svg>
-                </div>
-                <div class="theme-switch__circle-container">
-                    <div class="theme-switch__sun-moon-container">
-                        <div class="theme-switch__moon">
-                            <div class="theme-switch__spot"></div>
-                            <div class="theme-switch__spot"></div>
-                            <div class="theme-switch__spot"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </label>
-    </div>
-    <!-- Panel de debug de Analytics (quitar en producción) -->
-    <div id="analytics-debug"
-        style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; font-size: 12px; z-index: 10000;">
-        <strong>📊 Analytics Debug</strong>
-        <div id="analytics-events"></div>
-    </div>
-
-    <script>
-        // Debug de eventos analytics
-        const debugPanel = document.getElementById('analytics-events');
-        let eventCount = 0;
-
-        function logAnalyticsEvent(event, data) {
-            eventCount++;
-            const eventElement = document.createElement('div');
-            eventElement.style.marginTop = '5px';
-            eventElement.style.padding = '2px 5px';
-            eventElement.style.background = '#2c3e50';
-            eventElement.style.borderRadius = '3px';
-            eventElement.innerHTML = `${eventCount}. ${event}: ${JSON.stringify(data)}`;
-            debugPanel.appendChild(eventElement);
-
-            // Mantener solo últimos 5 eventos
-            if (debugPanel.children.length > 5) {
-                debugPanel.removeChild(debugPanel.firstChild);
-            }
-        }
-
-        // Interceptar eventos analytics
-        const originalTrackEvent = window.InsectraXAnalytics?.trackEvent;
-        if (originalTrackEvent) {
-            window.InsectraXAnalytics.trackEvent = function (category, action, label, value) {
-                logAnalyticsEvent(action, { category, label, value });
-                return originalTrackEvent.call(this, category, action, label, value);
-            };
-        }
-    </script>
-
-    <!-- Incluir todos los scripts -->
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/calculadora.js"></script>
-    <script src="js/analytics.js"></script>
+    <script src="js/threejs-tour.js"></script>
     <script src="js/formularios.js"></script>
     <script src="js/galeria.js"></script>
     <script src="js/optimizaciones.js"></script>

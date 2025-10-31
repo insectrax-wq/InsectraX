@@ -63,7 +63,6 @@ class Optimizations {
             const lcpObserver = new PerformanceObserver((entryList) => {
                 const entries = entryList.getEntries();
                 const lastEntry = entries[entries.length - 1];
-                console.log('LCP:', lastEntry.startTime);
                 
                 if (window.InsectraXAnalytics) {
                     InsectraXAnalytics.trackEvent('Performance', 'LCP', lastEntry.startTime.toFixed(0));
@@ -75,7 +74,6 @@ class Optimizations {
             const fidObserver = new PerformanceObserver((entryList) => {
                 const entries = entryList.getEntries();
                 entries.forEach(entry => {
-                    console.log('FID:', entry.processingStart - entry.startTime);
                 });
             });
             fidObserver.observe({entryTypes: ['first-input']});

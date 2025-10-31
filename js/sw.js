@@ -1,12 +1,10 @@
-// sw.js - Service Worker
+//Service Worker
 const CACHE_NAME = 'insectrax-v1.2.0';
 const urlsToCache = [
   '/',
   '/index.html',
   '/css/style.css',
   '/js/main.js',
-  '/js/calculadora.js',
-  '/js/sw.js',
   '/manifest.json',
   '/img/logos/InsectraX.png',
   '/img/fondos/campo.jpg',
@@ -19,11 +17,9 @@ const urlsToCache = [
 
 // Instalación
 self.addEventListener('install', function(event) {
-  console.log('Service Worker instalado');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Cache abierto');
         return cache.addAll(urlsToCache);
       })
   );
@@ -31,13 +27,11 @@ self.addEventListener('install', function(event) {
 
 // Activación
 self.addEventListener('activate', function(event) {
-  console.log('Service Worker activado');
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
           if (cacheName !== CACHE_NAME) {
-            console.log('Eliminando cache viejo:', cacheName);
             return caches.delete(cacheName);
           }
         })
