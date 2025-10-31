@@ -705,7 +705,165 @@ header {
     transform: rotate(45deg);
 }
 
+.calculator-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
 
+.calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.calculator-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calculator-inputs label {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.calculator-inputs input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.calculator-inputs input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#hectareas-value {
+    text-align: center;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.calculator-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-card {
+    background: var(--accent-color);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.result-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.result-card p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 80px 0 20px;
+    border-top: 2px solid var(--accent-color);
+}
+
+[data-theme="light"] footer {
+    background-color: #2d3748;
+    color: var(--text-primary);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-links a::before {
+    content: '▶';
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+}
+
+.footer-links a:hover::before {
+    transform: translateX(3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #333333;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+}
+
+[data-theme="light"] .copyright {
+    border-top: 1px solid #4a5568;
+}
 
 /* Botón flotante CTA */
 .floating-cta {
@@ -1816,6 +1974,7 @@ img.loaded {
     transform: scale(1.1);
 }
 
+/* Información de componentes */
 .component-info {
     background: var(--bg-card);
     padding: 30px;
