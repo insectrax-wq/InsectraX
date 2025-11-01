@@ -131,7 +131,8 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
             </div>
         </div>
 
-       <form id="registrationForm" class="registration-form" action="guardar_registro.php" method="POST" enctype="multipart/form-data">
+        <form id="registrationForm" class="registration-form" action="guardar_registro.php" method="POST"
+            enctype="multipart/form-data">
             <div class="form-step active" data-step="1">
                 <div class="step-header">
                     <h3>👤 Información Personal</h3>
@@ -158,6 +159,18 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
 
                     <div class="form-group">
+                        <label for="password">
+                            <span class="label-icon">🔒</span>
+                            Contraseña *
+                        </label>
+                        <input type="password" id="password" name="password" required
+                            placeholder="Crea una contraseña segura">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="telefono">
                             <span class="label-icon">📱</span>
                             Teléfono
@@ -165,9 +178,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         <input type="tel" id="telefono" name="telefono" placeholder="+52 123 456 7890">
                         <span class="error-message"></span>
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
                         <label for="edad">
                             <span class="label-icon">🎂</span>
@@ -176,20 +187,20 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         <input type="number" id="edad" name="edad" min="16" max="80" placeholder="18">
                         <span class="error-message"></span>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="genero">
-                            <span class="label-icon">⚧</span>
-                            Género
-                        </label>
-                        <select id="genero" name="genero">
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                            <option value="prefiero-no-decir">Prefiero no decir</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="genero">
+                        <span class="label-icon">⚧</span>
+                        Género
+                    </label>
+                    <select id="genero" name="genero">
+                        <option value="">Seleccionar</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                        <option value="prefiero-no-decir">Prefiero no decir</option>
+                    </select>
                 </div>
             </div>
 

@@ -304,13 +304,15 @@ class FormularioRegistro {
 
         try {
             const formData = this.getFormData();
-            await this.enviarDatos(formData);
+            const resultado = await this.enviarDatos(formData);
+
             this.mostrarLoading(false);
             this.mostrarModalExito();
             this.crearConfetti();
+
         } catch (error) {
             this.mostrarLoading(false);
-            this.mostrarMensajeError('Error al enviar el formulario. Intenta nuevamente.');
+            this.mostrarMensajeError(error.message);
         }
     }
 
@@ -337,46 +339,40 @@ class FormularioRegistro {
         try {
             console.log('📨 Enviando datos al servidor...', data);
 
-            // Crear FormData para enviar al PHP
             const formData = new FormData();
 
-            // Agregar todos los datos al FormData
-            for (const key in data) {
+            Object.keys(data).forEach(key => {
                 if (Array.isArray(data[key])) {
-                    // Para arrays (como intereses), agregar cada valor por separado
                     data[key].forEach(value => {
                         formData.append(key + '[]', value);
                     });
                 } else {
                     formData.append(key, data[key]);
                 }
-            }
+            });
 
-            // Mostrar lo que se va a enviar (para debug)
-            console.log('📊 FormData contents:');
+            console.log('📊 Datos a enviar:');
             for (let [key, value] of formData.entries()) {
-                console.log(key + ': ' + value);
+                console.log(key, ':', value);
             }
 
-            // Enviar al archivo PHP
-            const response = await fetch('http://localhost/guardar_registro.php', {
+            const response = await fetch('guardar_registro.php', {
                 method: 'POST',
                 body: formData
             });
 
-            const resultado = await response.text();
+            const resultado = await response.json();
             console.log('📬 Respuesta del servidor:', resultado);
 
-            // Verificar si fue exitoso
-            if (resultado.includes('REGISTRO EXITOSO') || resultado.includes('éxito')) {
-                return { success: true, message: 'Registro guardado correctamente' };
+            if (resultado.success) {
+                return { success: true, message: resultado.message };
             } else {
-                throw new Error('Error en el servidor: ' + resultado);
+                throw new Error(resultado.message);
             }
 
         } catch (error) {
             console.error('❌ Error al enviar datos:', error);
-            throw new Error('No se pudo conectar con el servidor. Intenta nuevamente.');
+            throw new Error('Error del servidor: ' + error.message);
         }
     }
 
