@@ -7,6 +7,8 @@ class Robot3DViewer {
         this.isRotating = true;
         this.rotationSpeed = 0.01;
         this.interactiveObjects = [];
+        this.raycaster = null;
+        this.mouse = new THREE.Vector2();
         
         this.init();
     }
@@ -14,9 +16,9 @@ class Robot3DViewer {
     async init() {
         try {
             await this.loadThreeJS();
-            await this.loadGLTFLoader(); // Cargar el loader para modelos
+            await this.loadGLTFLoader();
             this.setupScene();
-            await this.loadRobotModel(); // Cargar TU modelo
+            await this.loadRobotModel();
             this.setupControls();
             this.animate();
             this.hideLoading();
@@ -34,18 +36,14 @@ class Robot3DViewer {
 
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-            script.onload = () => {
-                resolve();
-            };
-            script.onerror = () => {
-                reject(new Error('No se pudo cargar Three.js'));
-            };
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error('No se pudo cargar Three.js'));
             document.head.appendChild(script);
         });
     }
 
     loadGLTFLoader() {
-        return new Promise((resolve, reject) =>{
+        return new Promise((resolve, reject) => {
             if (THREE.GLTFLoader) {
                 resolve();
                 return;
@@ -53,12 +51,8 @@ class Robot3DViewer {
 
             const script = document.createElement('script');
             script.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
-            script.onload = () => {
-                resolve();
-            };
-            script.onerror = () => {
-                reject(new Error('No se pudo cargar GLTFLoader'));
-            };
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error('No se pudo cargar GLTFLoader'));
             document.head.appendChild(script);
         });
     }
@@ -70,15 +64,12 @@ class Robot3DViewer {
             throw new Error('No se encontró el contenedor robot3dContainer');
         }
 
-        // Escena
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0x1a1a1a);
 
-        // Cámara
         this.camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
         this.camera.position.z = 5;
 
-        // Renderer
         const canvas = document.getElementById('robot3dCanvas');
         if (!canvas) {
             throw new Error('No se encontró el canvas robot3dCanvas');
@@ -90,9 +81,7 @@ class Robot3DViewer {
         });
         this.renderer.setSize(container.clientWidth, container.clientHeight);
         this.renderer.shadowMap.enabled = true;
-        this.renderer.outputEncoding = THREE.sRGBEncoding;
 
-        // Luces
         const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
         this.scene.add(ambientLight);
 
@@ -101,33 +90,22 @@ class Robot3DViewer {
         directionalLight.castShadow = true;
         this.scene.add(directionalLight);
 
-        // Resize handler
         window.addEventListener('resize', () => this.onWindowResize());
     }
 
     async loadRobotModel() {
-        
         return new Promise((resolve, reject) => {
             const loader = new THREE.GLTFLoader();
-            
-            // 📁 CAMBIA ESTA RUTA por la ubicación de TU modelo
-            const modelPath = 'models/robot.glb'; // ← AJUSTA ESTA RUTA
+            const modelPath = 'models/robot.glb';
             
             loader.load(
                 modelPath,
-                
-                // onLoad
                 (gltf) => {
                     this.robot = gltf.scene;
-                    
-                    // Configurar el modelo
                     this.setupModel();
                     this.scene.add(this.robot);
-                    
                     resolve();
                 },
-                
-                // onProgress
                 (progress) => {
                     const percent = (progress.loaded / (progress.total || 1000000) * 100).toFixed(1);
                     const loadingText = document.querySelector('.loading-3d p');
@@ -135,50 +113,41 @@ class Robot3DViewer {
                         loadingText.textContent = `Cargando modelo 3D... ${percent}%`;
                     }
                 },
-                
-                // onError
                 (error) => {
                     this.createBasicRobotModel();
-                    resolve(); // Resolvemos igual para que continúe
+                    resolve();
                 }
             );
         });
     }
 
     setupModel() {
-        // Escalar y posicionar el modelo
         this.robot.scale.set(1, 1, 1);
         this.robot.position.set(0, 0, 0);
         
-        // Hacer que el modelo sea interactivo
         this.robot.traverse((child) => {
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
                 
-                // Hacer los materiales más brillantes
                 if (child.material) {
                     child.material.metalness = 0.1;
                     child.material.roughness = 0.5;
                 }
                 
-                // Hacer el mesh interactivo
                 this.setupMeshInteractivity(child);
             }
         });
         
-        // Centrar el modelo en la vista
         const box = new THREE.Box3().setFromObject(this.robot);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
         
-        // Ajustar cámara basado en el tamaño del modelo
         const maxDim = Math.max(size.x, size.y, size.z);
         this.camera.position.z = maxDim * 2;
     }
 
     setupMeshInteractivity(mesh) {
-        // Asignar datos de componente basado en el nombre del mesh
         const name = mesh.name.toLowerCase();
         
         if (name.includes('solar') || name.includes('panel')) {
@@ -198,7 +167,6 @@ class Robot3DViewer {
             this.interactiveObjects.push(mesh);
         }
         
-        // Hacer el mesh clickeable
         mesh.cursor = 'pointer';
     }
 
@@ -272,7 +240,6 @@ class Robot3DViewer {
     createBasicRobotModel() {
         this.robot = new THREE.Group();
 
-        // Chasis principal (modelo básico como respaldo)
         const chassisGeometry = new THREE.BoxGeometry(2, 1, 1);
         const chassisMaterial = new THREE.MeshPhongMaterial({ color: 0x4a5568 });
         const chassis = new THREE.Mesh(chassisGeometry, chassisMaterial);
@@ -283,8 +250,6 @@ class Robot3DViewer {
     }
 
     setupControls() {
-        
-        // Controles de rotación automática
         const rotateBtn = document.getElementById('rotateAuto');
         if (rotateBtn) {
             rotateBtn.addEventListener('click', () => {
@@ -293,7 +258,6 @@ class Robot3DViewer {
             });
         }
 
-        // Controles de zoom
         const zoomIn = document.getElementById('zoomIn');
         if (zoomIn) {
             zoomIn.addEventListener('click', () => {
@@ -308,7 +272,6 @@ class Robot3DViewer {
             });
         }
 
-        // Reset view
         const resetBtn = document.getElementById('resetView');
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
@@ -319,7 +282,6 @@ class Robot3DViewer {
             });
         }
 
-        // Navegación por componentes
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const component = btn.dataset.component;
@@ -327,7 +289,6 @@ class Robot3DViewer {
             });
         });
 
-        // Click en el modelo 3D
         const canvas = document.getElementById('robot3dCanvas');
         if (canvas) {
             canvas.addEventListener('click', (event) => this.onModelClick(event));
@@ -338,62 +299,60 @@ class Robot3DViewer {
         if (this.interactiveObjects.length === 0) return;
         
         const rect = this.renderer.domElement.getBoundingClientRect();
-        const mouse = {
-            x: ((event.clientX - rect.left) / rect.width) * 2 - 1,
-            y: -((event.clientY - rect.top) / rect.height) * 2 + 1
-        };
+        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         
-        this.raycaster = this.raycaster || new THREE.Raycaster();
-        this.raycaster.setFromCamera(mouse, this.camera);
+        if (!this.raycaster) {
+            this.raycaster = new THREE.Raycaster();
+        }
         
+        this.raycaster.setFromCamera(this.mouse, this.camera);
         const intersects = this.raycaster.intersectObjects(this.interactiveObjects);
         
         if (intersects.length > 0) {
             const object = intersects[0].object;
             if (object.userData) {
                 this.showComponentInfo(object.userData);
-                
-                // Highlight visual
                 this.highlightObject(object);
             }
         }
     }
 
     highlightObject(object) {
-        // Remover highlight anterior
         this.interactiveObjects.forEach(obj => {
             if (obj.userData && obj !== object) {
-                if (obj.material && Array.isArray(obj.material)) {
-                    obj.material.forEach(mat => mat.emissive.setHex(0x000000));
-                } else if (obj.material) {
-                    obj.material.emissive.setHex(0x000000);
+                if (obj.material) {
+                    if (Array.isArray(obj.material)) {
+                        obj.material.forEach(mat => {
+                            if (mat.emissive) mat.emissive.setHex(0x000000);
+                        });
+                    } else if (obj.material.emissive) {
+                        obj.material.emissive.setHex(0x000000);
+                    }
                 }
             }
         });
         
-        // Aplicar highlight
-        if (object.material && Array.isArray(object.material)) {
-            object.material.forEach(mat => mat.emissive.setHex(0x333333));
-        } else if (object.material) {
-            object.material.emissive.setHex(0x333333);
+        if (object.material) {
+            if (Array.isArray(object.material)) {
+                object.material.forEach(mat => {
+                    if (mat.emissive) mat.emissive.setHex(0x333333);
+                });
+            } else if (object.material.emissive) {
+                object.material.emissive.setHex(0x333333);
+            }
         }
     }
 
     showComponentInfo(data) {
         if (typeof data === 'string') {
-            // Si data es solo el tipo de componente
             const components = {
-                solar: {
-                    title: '☀️ Panel Solar Integrado',
-                    description: 'Sistema de energía renovable de 400W para operación continua.',
-                    features: [
-                        'Potencia: 400W pico',
-                        'Eficiencia: 22%',
-                        'Carga completa: 6-8 horas',
-                        'Batería backup: 48V 100Ah'
-                    ]
-                },
-                // ... (los mismos datos de arriba)
+                solar: this.getComponentData('solar'),
+                sensors: this.getComponentData('sensors'),
+                application: this.getComponentData('application'),
+                camera: this.getComponentData('camera'),
+                battery: this.getComponentData('battery'),
+                chassis: this.getComponentData('chassis')
             };
             data = components[data] || components.solar;
         }
@@ -443,10 +402,7 @@ class Robot3DViewer {
     }
 }
 
-// Función global para inicializar
 window.inicializarTour3D = function() {
-    
-    // Verificar si la sección existe
     const tourSection = document.getElementById('tour-virtual');
     if (!tourSection) {
         return;
