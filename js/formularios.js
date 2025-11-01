@@ -52,11 +52,11 @@ class FormularioRegistro {
     setupEventListeners() {
         document.getElementById('btnSiguiente').addEventListener('click', () => this.nextStep());
         document.getElementById('btnAnterior').addEventListener('click', () => this.previousStep());
-        
+
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-        
+
         document.getElementById('btnCerrarModal').addEventListener('click', () => this.cerrarModal());
-        
+
         document.addEventListener('click', (e) => {
             if (e.target === this.modal) {
                 this.cerrarModal();
@@ -72,7 +72,7 @@ class FormularioRegistro {
 
     setupRealTimeValidation() {
         const inputs = this.form.querySelectorAll('input, select, textarea');
-        
+
         inputs.forEach(input => {
             input.addEventListener('blur', () => this.validateField(input));
             input.addEventListener('input', () => {
@@ -81,7 +81,7 @@ class FormularioRegistro {
                     this.actualizarContadorCaracteres(input);
                 }
             });
-            
+
             if (input.type === 'checkbox' || input.type === 'radio') {
                 input.addEventListener('change', () => this.validateField(input));
             }
@@ -151,7 +151,7 @@ class FormularioRegistro {
         const btnEnviar = document.getElementById('btnEnviar');
 
         btnAnterior.style.display = this.currentStep > 1 ? 'flex' : 'none';
-        
+
         if (this.currentStep === this.totalSteps) {
             btnSiguiente.classList.add('hidden');
             btnEnviar.classList.remove('hidden');
@@ -217,7 +217,7 @@ class FormularioRegistro {
     displayFieldError(field, isValid, message) {
         const formGroup = field.closest('.form-group');
         const errorElement = formGroup ? formGroup.querySelector('.error-message') : null;
-        
+
         if (!isValid) {
             field.classList.add('input-error');
             field.classList.remove('input-success');
@@ -247,10 +247,10 @@ class FormularioRegistro {
         const currentLength = textarea.value.length;
         const formGroup = textarea.closest('.form-group');
         const counter = formGroup ? formGroup.querySelector('.character-count') : null;
-        
+
         if (counter) {
             counter.textContent = `${currentLength}/${maxLength}`;
-            
+
             counter.classList.remove('warning', 'error');
             if (currentLength > maxLength * 0.8) {
                 counter.classList.add('warning');
@@ -294,7 +294,7 @@ class FormularioRegistro {
 
     async handleSubmit(e) {
         e.preventDefault();
-        
+
         if (!this.validateCurrentStep()) {
             this.mostrarMensajeError('Por favor, completa todos los campos requeridos correctamente.');
             return;
@@ -317,7 +317,7 @@ class FormularioRegistro {
     getFormData() {
         const formData = new FormData(this.form);
         const data = {};
-        
+
         for (let [key, value] of formData.entries()) {
             if (data[key]) {
                 if (Array.isArray(data[key])) {
@@ -329,24 +329,62 @@ class FormularioRegistro {
                 data[key] = value;
             }
         }
-        
+
         return data;
     }
 
     async enviarDatos(data) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Datos enviados:', data);
-                resolve({ success: true, message: 'Registro exitoso' });
-            }, 2000);
-        });
+        try {
+            console.log('📨 Enviando datos al servidor...', data);
+
+            // Crear FormData para enviar al PHP
+            const formData = new FormData();
+
+            // Agregar todos los datos al FormData
+            for (const key in data) {
+                if (Array.isArray(data[key])) {
+                    // Para arrays (como intereses), agregar cada valor por separado
+                    data[key].forEach(value => {
+                        formData.append(key + '[]', value);
+                    });
+                } else {
+                    formData.append(key, data[key]);
+                }
+            }
+
+            // Mostrar lo que se va a enviar (para debug)
+            console.log('📊 FormData contents:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ': ' + value);
+            }
+
+            // Enviar al archivo PHP
+            const response = await fetch('http://localhost/guardar_registro.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const resultado = await response.text();
+            console.log('📬 Respuesta del servidor:', resultado);
+
+            // Verificar si fue exitoso
+            if (resultado.includes('REGISTRO EXITOSO') || resultado.includes('éxito')) {
+                return { success: true, message: 'Registro guardado correctamente' };
+            } else {
+                throw new Error('Error en el servidor: ' + resultado);
+            }
+
+        } catch (error) {
+            console.error('❌ Error al enviar datos:', error);
+            throw new Error('No se pudo conectar con el servidor. Intenta nuevamente.');
+        }
     }
 
     mostrarLoading(mostrar) {
         const btn = document.getElementById('btnEnviar');
         const btnText = btn.querySelector('.btn-text');
         const btnLoader = btn.querySelector('.btn-loader');
-        
+
         if (mostrar) {
             btn.disabled = true;
             btnText.classList.add('hidden');
@@ -372,20 +410,20 @@ class FormularioRegistro {
     limpiarFormulario() {
         this.form.reset();
         this.currentStep = 1;
-        
+
         document.querySelectorAll('.form-step').forEach(step => {
             step.classList.remove('active');
         });
         document.querySelector('.form-step[data-step="1"]').classList.add('active');
-        
+
         this.updateProgress();
         this.updateNavigationButtons();
-        
+
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
         document.querySelectorAll('input, select, textarea').forEach(input => {
             input.classList.remove('input-error', 'input-success');
         });
-        
+
         document.querySelectorAll('.character-count').forEach(counter => {
             counter.textContent = '0/' + (counter.previousElementSibling?.getAttribute('maxlength') || '500');
         });
@@ -394,7 +432,7 @@ class FormularioRegistro {
     crearConfetti() {
         const confettiContainer = document.querySelector('.confetti');
         const colors = ['#ff0000', '#ff6b6b', '#ffffff', '#ff3333'];
-        
+
         for (let i = 0; i < 50; i++) {
             const confetti = document.createElement('div');
             confetti.className = 'confetti-piece';
@@ -410,7 +448,7 @@ class FormularioRegistro {
                 transform: rotate(${Math.random() * 360}deg);
             `;
             confettiContainer.appendChild(confetti);
-            
+
             setTimeout(() => confetti.remove(), 5000);
         }
     }
