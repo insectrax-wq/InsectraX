@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Team InsectraX</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="img/logos/InsectraX.png" type="image/png">
+</head>
+
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Container Principal -->
+    <div class="login-container">
+        <!-- Panel Izquierdo - Ilustración -->
+        <div class="login-hero">
+            <div class="hero-content">
+                <div class="logo-glow">
+                    <img src="img/logos/InsectraX.png" alt="InsectraX">
+                </div>
+                <h1 class="neon-text">Bienvenido de vuelta</h1>
+                <p class="hero-subtitle">Accede a tu cuenta para continuar con la revolución agrícola</p>
+
+                <!-- Features List -->
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🚀</span>
+                        <span>Gestiona tus proyectos</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👥</span>
+                        <span>Conecta con el equipo</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Accede a analytics</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔧</span>
+                        <span>Controla dispositivos IoT</span>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="login-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Miembros activos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Soporte activo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Efecto de partículas decorativas -->
+            <div class="floating-elements">
+                <div class="float-element">🤖</div>
+                <div class="float-element">🌱</div>
+                <div class="float-element">💻</div>
+                <div class="float-element">🔬</div>
+            </div>
+        </div>
+
+        <!-- Panel Derecho - Formulario -->
+        <div class="login-form-container">
+            <div class="form-wrapper">
+                <!-- Header del Formulario -->
+                <div class="form-header">
+                    <h2>Iniciar Sesión</h2>
+                    <p>Ingresa a tu cuenta de Team InsectraX</p>
+                </div>
+
+                <!-- Social Login -->
+                <div class="social-login">
+                    <button class="social-btn google-btn">
+                        <img src="img/icons/google.png" style="width: 20px;">
+                        Continuar con Google
+                    </button>
+                    <button class="social-btn github-btn">
+                        <img src="img/icons/social.png" style="width: 25px;">
+                        Continuar con GitHub
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>o ingresa con tu email</span>
+                </div>
+
+                <!-- Formulario de Login -->
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="label-icon"><img src="img/icons/correo-electronico.png" style="width: 17px;" class="invert-colors"></span>
+                            Correo electrónico *
+                        </label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">
+                            <span class="label-icon"><img src="img/icons/candado.png" style="width: 17px;" class="invert-colors"></span>
+                            Contraseña *
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" required
+                                placeholder="Ingresa tu contraseña">
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <span class="toggle-icon"><img src="img/icons/invisible.png" style="width: 20px;" class="invert-colors"></span>
+                            </button>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Recordar y Olvidé contraseña -->
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span class="checkmark"></span>
+                            Recordar sesión
+                        </label>
+                        <a href="forgot-password.html" class="forgot-link">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+
+                    <!-- Botón de Login -->
+                    <button type="submit" class="btn btn-primary login-btn">
+                        <span class="btn-text">Iniciar Sesión</span>
+                        <div class="btn-loader hidden">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                    <div class="captcha-container">
+                        <div id="customCaptcha"></div>
+                    </div>
+                </form>
+
+                <!-- Registro -->
+                <div class="register-section">
+                    <p>¿No tienes una cuenta? <a href="formulario.html" class="register-link">Regístrate aquí</a></p>
+                </div>
+
+                <!-- Footer -->
+                <div class="form-footer">
+                    <p><a href="index.html" class="back-link">← Volver al inicio</a></p>
+                    <div class="security-badge">
+                        <span class="security-icon">🛡️</span>
+                        Conexión segura SSL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Bienvenida -->
+    <div class="modal hidden" id="welcomeModal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h3 class="neon-text">¡Bienvenido de vuelta!</h3>
+            <p id="welcomeMessage">Es genial verte de nuevo en Team InsectraX</p>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">👤</div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">Usuario</div>
+                    <div class="user-email" id="userEmail">usuario@ejemplo.com</div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="btnCerrarModal">Cerrar</button>
+                <button class="btn btn-primary" id="btnIrDashboard">Ir al Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/capchat.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
