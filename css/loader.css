@@ -14,7 +14,7 @@
   position: absolute;
   width: 300%;
   height: 300%;
-  background: conic-gradient(from 0deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+  background: conic-gradient(from 0deg, #000000, #000000, #ffffff, #000000);
   animation: rotate 8s linear infinite;
   opacity: 0.1;
 }
@@ -47,10 +47,10 @@
   position: absolute;
   width: 12px;
   height: 12px;
-  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  background: linear-gradient(45deg, #ffffff, #ffffff);
   border-radius: 50%;
   animation: orbit 2s linear infinite;
-  box-shadow: 0 0 15px #00ffff;
+  box-shadow: 0 0 15px #ffff00;
 }
 
 .dot:nth-child(1) { animation-delay: 0s; }
@@ -61,7 +61,7 @@
   position: absolute;
   width: 160px;
   height: 160px;
-  border: 2px solid #00ffff;
+  border: 2px solid #ff0000;
   border-radius: 50%;
   animation: ringPulse 2s ease-out infinite;
 }
@@ -70,7 +70,7 @@
   width: 200px;
   height: 200px;
   animation-delay: 0.5s;
-  border-color: #ff00ff;
+  border-color: #ffffff;
 }
 
 .particle {
@@ -108,11 +108,11 @@
 @keyframes glow {
   0%, 100% { 
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)) 
-            drop-shadow(0 0 25px rgba(0, 255, 255, 0.5));
+            drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
   }
   50% { 
     filter: drop-shadow(0 0 25px rgba(255, 255, 255, 1)) 
-            drop-shadow(0 0 40px rgba(255, 0, 255, 0.8))
+            drop-shadow(0 0 40px rgba(255, 0, 0, 0.8))
             drop-shadow(0 0 60px rgba(255, 255, 0, 0.4));
   }
 }
