@@ -25,7 +25,10 @@
 </head>
 
 <body>
-    div class="menu-overlay" id="menuOverlay"></div>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
     <div class="loader-container" id="loader">
         <div class="loader">
             <div class="orbital-dots">
@@ -128,6 +131,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 42 128 113 207 234 68 105 163 284 156 295 -3 4 -28 3 -57 -2 -164 -26 -218
 -31 -373 -31 -149 0 -320 16 -407 38 -13 3 -26 3 -30 0z" />
             </svg>
+            <div class="loading-text">Cargando InsectraX...</div>
         </div>
     </div>
 
@@ -160,7 +164,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
     <section class="hero">
         <div class="hero-image"></div>
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content scroll-animate">
                 <br>
                 <br>
                 <h1 class="hero-title">Conoce al <span class="highlight">Team InsectraX</span></h1>
@@ -195,12 +199,12 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="about-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Nuestra Historia</h2>
                 <p>De Pénjamo para el mundo</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text scroll-animate">
                     <h3>Orígenes y Misión</h3>
                     <p>Somos un equipo de estudiantes apasionados por la tecnología y la agricultura, originarios del
                         estado de Guanajuato. Nuestra formación en la <strong>Universidad Politécnica de Pénjamo
@@ -213,25 +217,25 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         de los agricultores, incremente la productividad y promueva una agricultura más sostenible.</p>
 
                     <div class="stats-grid">
-                        <div class="stat-card">
+                        <div class="stat-card scroll-animate">
                             <div class="stat-number" data-count="5">0</div>
                             <div class="stat-label">Integrantes</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card scroll-animate">
                             <div class="stat-number" data-count="2">0</div>
                             <div class="stat-label">Mes de desarrollo</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card scroll-animate">
                             <div class="stat-number" data-count="100">0</div>
                             <div class="stat-label">% Mexicanos</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card scroll-animate">
                             <div class="stat-number">UPPE</div>
                             <div class="stat-label">Formación</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image scroll-animate">
                     <h3>Donde nos encontramos</h3>
                     <div class="map-container">
                         <iframe
@@ -246,15 +250,15 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="uppe-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Nuestra Formación</h2>
                 <p>Educación de calidad en la UPPE</p>
             </div>
             <div class="uppe-content">
-                <div class="uppe-image">
+                <div class="uppe-image scroll-animate">
                     <img src="img/edificios/upp_3.png" alt="Universidad Politécnica de Pénjamo" loading="lazy">
                 </div>
-                <div class="uppe-info">
+                <div class="uppe-info scroll-animate">
                     <img src="img/logos/LogoUppBlanco.png" alt="UPPE Logo" class="uppe-logo">
                     <h3>Universidad Politécnica de Pénjamo</h3>
                     <p>Nuestra alma máter nos ha brindado una <strong>formación integral</strong> en ingeniería y
@@ -265,15 +269,15 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </p>
 
                     <div class="uppe-features">
-                        <div class="feature">
+                        <div class="feature scroll-animate">
                             <span class="feature-icon">🎓</span>
                             <span>Formación en ingeniería</span>
                         </div>
-                        <div class="feature">
+                        <div class="feature scroll-animate">
                             <span class="feature-icon">💡</span>
                             <span>Enfoque en innovación</span>
                         </div>
-                        <div class="feature">
+                        <div class="feature scroll-animate">
                             <span class="feature-icon">🤝</span>
                             <span>Vinculación comunitaria</span>
                         </div>
@@ -283,141 +287,328 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
         </div>
     </section>
 
-    <section class="team-section" id="equipo">
+    <section class="team-info-section">
+        <div class="particles-background" id="teamParticles"></div>
         <div class="container">
-            <div class="section-header">
-                <h2>Nuestro Equipo</h2>
-                <p>Las mentes detrás de InsectraX</p>
+            <div class="section-header scroll-animate">
+                <h2>Conoce Más de Nosotros</h2>
+                <p>Jóvenes talentosos unidos por la innovación agrícola</p>
             </div>
 
-            <div class="team-filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="liderazgo">Liderazgo</button>
-                <button class="filter-btn" data-filter="tecnico">Técnico</button>
-                <button class="filter-btn" data-filter="diseño">Diseño</button>
+            <!-- FILTROS MEJORADOS -->
+            <div class="team-filters-enhanced scroll-animate">
+                <div class="filters-container">
+                    <button class="filter-btn-enhanced active" data-filter="all">
+                        <span class="filter-icon">👥</span>
+                        <span class="filter-text">Todo el Equipo</span>
+                    </button>
+                    <button class="filter-btn-enhanced" data-filter="liderazgo">
+                        <span class="filter-icon">👑</span>
+                        <span class="filter-text">Liderazgo</span>
+                    </button>
+                    <button class="filter-btn-enhanced" data-filter="tecnico">
+                        <span class="filter-icon">🔧</span>
+                        <span class="filter-text">Técnico</span>
+                    </button>
+                    <button class="filter-btn-enhanced" data-filter="diseño">
+                        <span class="filter-icon">🎨</span>
+                        <span class="filter-text">Diseño</span>
+                    </button>
+                    <button class="filter-btn-enhanced" data-filter="calidad">
+                        <span class="filter-icon">🔍</span>
+                        <span class="filter-text">Calidad</span>
+                    </button>
+                </div>
+                <div class="filter-counter">
+                    <span class="counter-text">Mostrando <span id="memberCount">5</span> de 5 miembros</span>
+                </div>
             </div>
 
-            <div class="team-grid">
-                <div class="team-card" data-category="liderazgo">
-                    <div class="team-avatar">
-                        <img src="img/Integrantes/Lider.jpg" alt="Ángel Jesús Escamilla Rodríguez" loading="lazy">
-                    </div>
-                    <h3>Ángel Jesús Escamilla Rodríguez</h3>
-                    <div class="role">Líder del Proyecto</div>
-                    <p>Encargado de la dirección general del proyecto y del desarrollo técnico. Ángel destaca por su
-                        creatividad, liderazgo y habilidades en programación, diseño web y automatización.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Programación</span>
-                        <span class="skill-tag">Liderazgo</span>
-                        <span class="skill-tag">Automatización</span>
-                        <span class="skill-tag">IoT</span>
-                    </div>
-                    <div class="team-contact">
-                        <a href="mailto:angelescamilla2602@gmail.com" class="contact-link">📧 Email</a>
-                    </div>
-                </div>
-
-                <div class="team-card" data-category="liderazgo">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder" data-initials="EQ">
-                            <span>EQ</span>
+            <div class="team-info-grid">
+                <!-- Ángel -->
+                <div class="team-info-card scroll-animate" data-category="liderazgo" data-city="penjamo">
+                    <div class="card-header">
+                        <div class="info-avatar">
+                            <img src="img/Integrantes/Lider.jpg" alt="Ángel Jesús Escamilla Rodríguez" loading="lazy">
+                            <div class="status-badge leader">Líder</div>
                         </div>
-                        <div class="team-status subleader">Sublíder</div>
-                    </div>
-                    <h3>Erandi Uriel Quiroz Pichardo</h3>
-                    <div class="role">Sublíder</div>
-                    <p>Apoya en la coordinación del equipo y en la toma de decisiones clave del proyecto. Erandi se
-                        caracteriza por su compromiso, organización y capacidad para resolver problemas.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Coordinación</span>
-                        <span class="skill-tag">Organización</span>
-                        <span class="skill-tag">Resolución</span>
-                        <span class="skill-tag">Planificación</span>
-                    </div>
-                </div>
-
-                <div class="team-card" data-category="liderazgo">
-                    <div class="team-avatar">
-                        <div class="avatar-placeholder" data-initials="JM">
-                            <span>JM</span>
+                        <div class="name-title">
+                            <h3>Ángel Jesús Escamilla Rodríguez</h3>
+                            <div class="hometown">
+                                <span class="location-icon">📍</span>
+                                <span class="hometown-text">Pénjamo, Guanajuato</span>
+                            </div>
                         </div>
-                        <div class="team-status mentor">Tutor</div>
                     </div>
-                    <h3>José de Jesús Mendoza Osorio</h3>
-                    <div class="role">Tutor</div>
-                    <p>Guía y orienta al equipo durante el desarrollo del proyecto, brindando apoyo técnico y académico.
-                        Aporta experiencia, conocimiento y liderazgo para asegurar calidad.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Mentoría</span>
-                        <span class="skill-tag">Experiencia</span>
-                        <span class="skill-tag">Calidad</span>
-                        <span class="skill-tag">Asesoría</span>
-                    </div>
-                </div>
-
-                <div class="team-card" data-category="tecnico">
-                    <div class="team-avatar">
-                        <img src="img/Integrantes/Inspector.jpg" alt="Emmanuel Salvador Herrera Cano" loading="lazy">
-                        <div class="team-status inspector">Inspector</div>
-                    </div>
-                    <h3>Emmanuel Salvador Herrera Cano</h3>
-                    <div class="role">Inspector de Calidad</div>
-                    <p>Responsable de supervisar el cumplimiento de los objetivos y la calidad de cada fase del
-                        proyecto. Destaca por su atención al detalle y compromiso.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Calidad</span>
-                        <span class="skill-tag">Supervisión</span>
-                        <span class="skill-tag">Detalle</span>
-                        <span class="skill-tag">Control</span>
+                    <div class="personal-info">
+                        <p class="bio">Apasionado por la tecnología y la innovación agrícola. Originario de Pénjamo, con
+                            amplios conocimientos en programación, automatización y desarrollo web.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Programación</span>
+                            <span class="skill-tag">IoT</span>
+                            <span class="skill-tag">Liderazgo</span>
+                        </div>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💻</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Especialidad</span>
+                                    <span class="detail-value">Programación & Automatización</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Hobbies</span>
+                                    <span class="detail-value">Desarrollo de proyectos, robótica</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="team-card" data-category="diseño">
-                    <div class="team-avatar">
-                        <img src="img/Integrantes/diseñador1.jpg" alt="Bryan Josué Hernández Salazar" loading="lazy">
-                        <div class="team-status designer">Diseñador</div>
+                <!-- Uriel -->
+                <div class="team-info-card scroll-animate" data-category="liderazgo" data-city="abasolo">
+                    <div class="card-header">
+                        <div class="info-avatar">
+                            <div class="avatar-placeholder" data-initials="EQ">
+                                <span>EQ</span>
+                            </div>
+                            <div class="status-badge subleader">Sublíder</div>
+                        </div>
+                        <div class="name-title">
+                            <h3>Erandi Uriel Quiroz Pichardo</h3>
+                            <div class="hometown">
+                                <span class="location-icon">📍</span>
+                                <span class="hometown-text">Abasolo, Guanajuato</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Bryan Josué Hernández Salazar</h3>
-                    <div class="role">Diseñador Principal</div>
-                    <p>Encargado del diseño visual y la presentación gráfica del proyecto. Aporta creatividad, estilo y
-                        un enfoque estético que da identidad al equipo.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Diseño</span>
-                        <span class="skill-tag">Creatividad</span>
-                        <span class="skill-tag">UI/UX</span>
-                        <span class="skill-tag">Branding</span>
+                    <div class="personal-info">
+                        <p class="bio">Destacado por su capacidad de organización y resolución de problemas. Originario
+                            de Abasolo, aporta una perspectiva única al equipo con su enfoque metódico y comprometido.
+                        </p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Coordinación</span>
+                            <span class="skill-tag">Planificación</span>
+                            <span class="skill-tag">Estrategia</span>
+                        </div>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">📊</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Especialidad</span>
+                                    <span class="detail-value">Coordinación & Planificación</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Hobbies</span>
+                                    <span class="detail-value">Estrategia, trabajo en equipo</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="team-card" data-category="diseño">
-                    <div class="team-avatar">
-                        <img src="img/Integrantes/diseñador2.jpg" alt="Miguel Ángel Contreras Ríos" loading="lazy">
-                        <div class="team-status designer">Diseñador</div>
+                <!-- Chava -->
+                <div class="team-info-card scroll-animate" data-category="calidad" data-city="penjamo">
+                    <div class="card-header">
+                        <div class="info-avatar">
+                            <img src="img/Integrantes/Inspector.jpg" alt="Emmanuel Salvador Herrera Cano"
+                                loading="lazy">
+                            <div class="status-badge inspector">Inspector</div>
+                        </div>
+                        <div class="name-title">
+                            <h3>Emmanuel Salvador Herrera Cano</h3>
+                            <div class="hometown">
+                                <span class="location-icon">📍</span>
+                                <span class="hometown-text">Pénjamo, Guanajuato</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Miguel Ángel Contreras Ríos</h3>
-                    <div class="role">Diseñador Visual</div>
-                    <p>Participa en la creación de elementos visuales y en la mejora estética del proyecto. Aporta ideas
-                        originales, equilibrio visual y creatividad.</p>
-                    <div class="skills-list">
-                        <span class="skill-tag">Diseño</span>
-                        <span class="skill-tag">Creatividad</span>
-                        <span class="skill-tag">Visual</span>
-                        <span class="skill-tag">Grágico</span>
+                    <div class="personal-info">
+                        <p class="bio">Conocido como "Chava", es originario de Pénjamo. Su atención al detalle y
+                            compromiso con la excelencia aseguran la calidad en cada fase del proyecto.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Calidad</span>
+                            <span class="skill-tag">Supervisión</span>
+                            <span class="skill-tag">Detalle</span>
+                        </div>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🔍</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Especialidad</span>
+                                    <span class="detail-value">Control de Calidad & Supervisión</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Hobbies</span>
+                                    <span class="detail-value">Análisis, mejora continua</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bryan -->
+                <div class="team-info-card scroll-animate" data-category="diseño" data-city="piedad">
+                    <div class="card-header">
+                        <div class="info-avatar">
+                            <img src="img/Integrantes/diseñador1.jpg" alt="Bryan Josué Hernández Salazar"
+                                loading="lazy">
+                            <div class="status-badge designer">Diseñador</div>
+                        </div>
+                        <div class="name-title">
+                            <h3>Bryan Josué Hernández Salazar</h3>
+                            <div class="hometown">
+                                <span class="location-icon">📍</span>
+                                <span class="hometown-text">La Piedad, Michoacán</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personal-info">
+                        <p class="bio">Originario de La Piedad, Michoacán. Aporta creatividad y estilo al equipo, dando
+                            identidad visual al proyecto con su talento en diseño y experiencia de usuario.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Diseño</span>
+                            <span class="skill-tag">Creatividad</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🎨</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Especialidad</span>
+                                    <span class="detail-value">Diseño & Creatividad</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Hobbies</span>
+                                    <span class="detail-value">Arte digital, branding</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor -->
+                <div class="team-info-card scroll-animate" data-category="liderazgo" data-city="tutor">
+                    <div class="card-header">
+                        <div class="info-avatar">
+                            <div class="avatar-placeholder" data-initials="JM">
+                                <span>JM</span>
+                            </div>
+                            <div class="status-badge mentor">Tutor</div>
+                        </div>
+                        <div class="name-title">
+                            <h3>José de Jesús Mendoza Osorio</h3>
+                            <div class="hometown">
+                                <span class="location-icon">📍</span>
+                                <span class="hometown-text">Experiencia Académica</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personal-info">
+                        <p class="bio">Guía y mentor del equipo, aportando su vasta experiencia académica y profesional.
+                            Su liderazgo y conocimiento son fundamentales para el éxito del proyecto.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Mentoría</span>
+                            <span class="skill-tag">Asesoría</span>
+                            <span class="skill-tag">Liderazgo</span>
+                        </div>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">👨‍🏫</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Especialidad</span>
+                                    <span class="detail-value">Mentoría & Asesoría</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <div class="detail-content">
+                                    <span class="detail-label">Rol</span>
+                                    <span class="detail-value">Guía académica</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-visual-section scroll-animate">
+                <div class="visual-content">
+                    <div class="team-photo-section">
+                        <h3>Nuestro Equipo Completo</h3>
+                        <div class="team-photo-container">
+                            <img src="img/Integrantes/equipo.jpg" alt="Team InsectraX - Equipo Completo" loading="lazy"
+                                class="team-photo">
+                            <div class="photo-overlay">
+                                <div class="team-members-info">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-info">
+                        <h3>Unidos por la Innovación</h3>
+                        <p class="region-description">Nuestro equipo representa la diversidad y talento de la región del
+                            Bajío. Desde diferentes municipios de Guanajuato y Michoacán, nos unimos con un objetivo
+                            común: revolucionar la agricultura mediante tecnología innovadora.</p>
+
+                        <div class="region-stats">
+                            <div class="region-stat">
+                                <div class="stat-icon">🏘️</div>
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Municipios Representados</span>
+                            </div>
+                            <div class="region-stat">
+                                <div class="stat-icon">🗺️</div>
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Estados</span>
+                            </div>
+                            <div class="region-stat">
+                                <div class="stat-icon">🎯</div>
+                                <span class="stat-number">1</span>
+                                <span class="stat-label">Objetivo Común</span>
+                            </div>
+                        </div>
+
+                        <div class="cities-list">
+                            <div class="city-item">
+                                <span class="city-badge penjamo">Pénjamo</span>
+                                <span class="city-members">Ángel & Chava</span>
+                            </div>
+                            <div class="city-item">
+                                <span class="city-badge abasolo">Abasolo</span>
+                                <span class="city-members">Uriel</span>
+                            </div>
+                            <div class="city-item">
+                                <span class="city-badge piedad">La Piedad</span>
+                                <span class="city-members">Bryan</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline del Proyecto - ACTUALIZADA A LA REALIDAD -->
     <section class="timeline-section" id="timeline">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Nuestra Travesía</h2>
                 <p>El camino de planificación de InsectraX</p>
             </div>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -434,7 +625,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -450,7 +641,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -466,7 +657,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -482,7 +673,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -497,7 +688,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -514,7 +705,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item scroll-animate">
                     <div class="timeline-marker">
                         <div class="marker-line"></div>
                     </div>
@@ -536,13 +727,13 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="gallery-section" id="galeria">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Galería del Proyecto</h2>
                 <p>Momentos clave en el desarrollo de InsectraX</p>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item scroll-animate">
                     <img src="img/galeria/robot1.png" alt="InsectraX en campo abierto" loading="lazy"
                         data-src="img/galeria/robot1.png">
                     <div class="gallery-overlay">
@@ -550,7 +741,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         <button class="gallery-view">🔍 Ver</button>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item scroll-animate">
                     <img src="img/galeria/robot2.png" alt="Sistema de aplicación" loading="lazy"
                         data-src="img/galeria/robot2.png">
                     <div class="gallery-overlay">
@@ -558,7 +749,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         <button class="gallery-view">🔍 Ver</button>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item scroll-animate">
                     <img src="img/galeria/robot3.png" alt="Panel solar" loading="lazy"
                         data-src="img/galeria/robot3.png">
                     <div class="gallery-overlay">
@@ -566,7 +757,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
                         <button class="gallery-view">🔍 Ver</button>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item scroll-animate">
                     <img src="img/nosotros/team-work.jpg" alt="Equipo trabajando" loading="lazy"
                         data-src="img/nosotros/team-work.jpg">
                     <div class="gallery-overlay">
@@ -580,33 +771,33 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="process-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Nuestro Proceso</h2>
                 <p>Así trabajamos en InsectraX</p>
             </div>
             <div class="process-gallery">
-                <div class="process-item">
+                <div class="process-item scroll-animate">
                     <img src="img/proceso/brainstorming.jpg" alt="Lluvia de ideas" loading="lazy">
                     <div class="process-overlay">
                         <h4>Lluvia de Ideas</h4>
                         <p>Sesiones creativas para conceptualizar soluciones</p>
                     </div>
                 </div>
-                <div class="process-item">
+                <div class="process-item scroll-animate">
                     <img src="img/proceso/design.jpg" alt="Diseño" loading="lazy">
                     <div class="process-overlay">
                         <h4>Diseño</h4>
                         <p>Creación de prototipos y planos técnicos</p>
                     </div>
                 </div>
-                <div class="process-item">
+                <div class="process-item scroll-animate">
                     <img src="img/proceso/development.jpg" alt="Desarrollo" loading="lazy">
                     <div class="process-overlay">
                         <h4>Desarrollo</h4>
                         <p>Implementación técnica del proyecto</p>
                     </div>
                 </div>
-                <div class="process-item">
+                <div class="process-item scroll-animate">
                     <img src="img/proceso/testing.jpg" alt="Pruebas" loading="lazy">
                     <div class="process-overlay">
                         <h4>Pruebas</h4>
@@ -619,29 +810,29 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="values-section" id="valores">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header scroll-animate">
                 <h2>Nuestros Valores</h2>
                 <p>Principios que guían nuestro trabajo</p>
             </div>
             <div class="values-grid">
-                <div class="value-card">
+                <div class="value-card scroll-animate">
                     <div class="value-icon">🌱</div>
                     <h3>Sostenibilidad</h3>
                     <p>Desarrollamos tecnología que respeta el medio ambiente y promueve prácticas agrícolas
                         responsables.</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card scroll-animate">
                     <div class="value-icon">🤝</div>
                     <h3>Compromiso Social</h3>
                     <p>Creemos en el poder de la tecnología para mejorar la calidad de vida de las comunidades rurales.
                     </p>
                 </div>
-                <div class="value-card">
+                <div class="value-card scroll-animate">
                     <div class="value-icon">💡</div>
                     <h3>Innovación</h3>
                     <p>Buscamos constantemente nuevas soluciones para los desafíos del campo guanajuatense.</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card scroll-animate">
                     <div class="value-icon">🎯</div>
                     <h3>Precisión</h3>
                     <p>Cada componente de InsectraX está diseñado para ofrecer máxima eficiencia y exactitud.</p>
@@ -652,7 +843,7 @@ l44 41 -60 57 c-64 61 -74 65 -125 43 -43 -18 -83 -71 -226 -296 -63 -100
 
     <section class="cta-section">
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content scroll-animate">
                 <h2>¿Te gustaría colaborar con nosotros?</h2>
                 <p>Estamos siempre abiertos a nuevas ideas, colaboraciones y oportunidades de crecimiento.</p>
                 <div class="cta-buttons">

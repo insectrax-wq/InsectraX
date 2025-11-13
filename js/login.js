@@ -293,7 +293,7 @@ class LoginSystem {
         this.crearConfeti();
 
         document.getElementById('btnIrDashboard').onclick = () => {
-            window.location.href = 'dashboard.php';
+            window.location.href = 'dashboard.html';
         };
     }
 
