@@ -164,15 +164,33 @@ header {
     margin-top: 60px;
 }
 
-.hero-image {
+.hero-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--hero-overlay),
-        url('../img/fondos/campo.jpg') center/cover no-repeat;
     z-index: 1;
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Efecto de opacidad/sombra directamente en el video */
+    filter: brightness(0.6) contrast(1.2);
+}
+
+.hero-video::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay más oscuro para mejor contraste con texto */
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
 }
 
 .hero-content {
@@ -2407,4 +2425,28 @@ img.loaded {
     .parallax {
         background-attachment: scroll !important;
     }
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+body {
+    position: relative;
+    z-index: 1;
+}
+
+.loader-container {
+    position: relative;
+    z-index: 9999;
+}
+
+.loader-container #particles-js {
+    z-index: -1;
 }
